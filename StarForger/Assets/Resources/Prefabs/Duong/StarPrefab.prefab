@@ -42,7 +42,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3343788086782116604}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.81174606, y: 1, z: 0.79724854}
@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starData: {fileID: 0}
+  canPlayerPickUp: 1
 --- !u!54 &9066122987929833064
 Rigidbody:
   m_ObjectHideFlags: 0

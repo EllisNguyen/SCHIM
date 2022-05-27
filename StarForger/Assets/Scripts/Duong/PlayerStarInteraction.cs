@@ -6,9 +6,10 @@ using UnityEngine;
 [Serializable]
 public class InvenItem
 {
-    public StarType starType;
+    //public StarType starType;
     public int starCount;
-    public Sprite sprite;
+    //public Sprite sprite;
+    public SO_StarPickupType starData;
 }
 
 public class PlayerStarInteraction : MonoBehaviour
@@ -33,9 +34,10 @@ public class PlayerStarInteraction : MonoBehaviour
         for (int i = 0; i < starTypeList.Count; i++)
         {
             _inventoryList.Add(new InvenItem());
-            _inventoryList[i].starType = starTypeList[i].starValue;
+            _inventoryList[i].starData = starTypeList[i];
+            //_inventoryList[i].starType = starTypeList[i].starValue;
             _inventoryList[i].starCount = 0;
-            _inventoryList[i].sprite = starTypeList[i].sprite;
+            //_inventoryList[i].sprite = starTypeList[i].sprite;
         }
         
         //Update UI on screenSpace
@@ -54,7 +56,7 @@ public class PlayerStarInteraction : MonoBehaviour
         //add to inventory
         foreach (var item in _inventoryList)
         {
-            if (item.starType == starValue)
+            if (item.starData.starValue == starValue)
                 item.starCount++;
         }
         //destroy star
@@ -64,15 +66,33 @@ public class PlayerStarInteraction : MonoBehaviour
 
     private void Update()
     {
+        OnInventorySwitch();
+        OnFire();
+        
+    }
+
+    private void OnFire()
+    {
         if (Input.GetMouseButtonDown(0))//left click
         {
+            if (_inventoryList[currentInventoryIndex].starCount <= 0) return;
+            
+            //shoot star and add force
             var starBehavior = Instantiate(_starPrefab, _shootPoint.position, Quaternion.identity).GetComponent<StarBehavior>();
+            starBehavior.starData = _inventoryList[currentInventoryIndex].starData;
             starBehavior.PlayerPickUpCoolDown();
             starBehavior.SetDrag(0.1f);
             starBehavior.AddForce(_shootPoint.forward * 1000);
-        }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+            //Update inventory amount
+            _inventoryList[currentInventoryIndex].starCount--;
+            UpdateScreenSprite();
+        }
+    }
+    
+    private void OnInventorySwitch()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
         {
             currentInventoryIndex++;
             
@@ -83,7 +103,7 @@ public class PlayerStarInteraction : MonoBehaviour
             
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             currentInventoryIndex--;
             
@@ -93,10 +113,10 @@ public class PlayerStarInteraction : MonoBehaviour
             UpdateScreenSprite();
         }
     }
-
+    
     private void UpdateScreenSprite()
     {
-        ScreenSpaceUIManager.Instance.UpdateItemSlot(_inventoryList[currentInventoryIndex].sprite,
+        ScreenSpaceUIManager.Instance.UpdateItemSlot(_inventoryList[currentInventoryIndex].starData.sprite,
                                                     _inventoryList[currentInventoryIndex].starCount.ToString());
     }
 }
