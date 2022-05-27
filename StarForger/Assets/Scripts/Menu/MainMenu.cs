@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] List<GameObject> enableAfterTutorial;
 
     GameObject curMenu;
+    CanvasGroup curCanv;
 
     void Start()
     {
@@ -45,6 +46,8 @@ public class MainMenu : MonoBehaviour
 
     public void PressConfig()
     {
+        curMenu.GetComponent<CanvasGroup>().interactable = false;
+
         //configOperation?.Invoke();
         StartCoroutine(ActivateMenu(configMenu, transitionDelay));
         for (int i = 0; i < disableAfterConfig.Count; i++)
@@ -56,6 +59,8 @@ public class MainMenu : MonoBehaviour
 
     public void PressTutorial()
     {
+        curMenu.GetComponent<CanvasGroup>().interactable = false;
+
         //tutorialOperation?.Invoke();
         StartCoroutine(ActivateMenu(tutorialMenu, transitionDelay));
         for (int i = 0; i < disableAfterTutorial.Count; i++)
@@ -82,10 +87,12 @@ public class MainMenu : MonoBehaviour
         else
         {
             if (curMenu != null)
+            {
                 curMenu.SetActive(false);
-
+            }
             curMenu = menu;
             menu.SetActive(true);
+            curMenu.GetComponent<CanvasGroup>().interactable = true;
         }
     }
 }
