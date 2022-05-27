@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] GameObject mainMenu;
+    [SerializeField] float transitionDelay = 0.1f;
 
     [Header("Start Operation")]
     [SerializeField] Operation startOperation;
@@ -28,12 +29,13 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        curMenu = mainMenu;
+        StartCoroutine(ActivateMenu(mainMenu));
     }
 
     public void PressStart()
     {
         //startOperation?.Invoke();
+
         for (int i = 0; i < disableAfterStart.Count; i++)
         {
             disableAfterStart[i].SetActive(false);
@@ -44,6 +46,7 @@ public class MainMenu : MonoBehaviour
     public void PressConfig()
     {
         //configOperation?.Invoke();
+        StartCoroutine(ActivateMenu(configMenu, transitionDelay));
         for (int i = 0; i < disableAfterConfig.Count; i++)
         {
             disableAfterConfig[i].SetActive(false);
@@ -54,6 +57,7 @@ public class MainMenu : MonoBehaviour
     public void PressTutorial()
     {
         //tutorialOperation?.Invoke();
+        StartCoroutine(ActivateMenu(tutorialMenu, transitionDelay));
         for (int i = 0; i < disableAfterTutorial.Count; i++)
         {
             disableAfterTutorial[i].SetActive(false);
@@ -61,8 +65,15 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    void ActivateMenu(GameObject menu)
+    public void PressBack()
     {
+        StartCoroutine(ActivateMenu(mainMenu, transitionDelay));
+    }
+
+    IEnumerator ActivateMenu(GameObject menu, float delay = 0f)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+
         if (curMenu == menu)
         {
             menu.SetActive(false);
