@@ -57,4 +57,9 @@ public class StarBehavior : MonoBehaviour
         await Task.Delay(1000);
         canPlayerPickUp = true;
     }
+
+    public void ResetPlayerPickUpCoolDown()
+    {
+        canPlayerPickUp = true;
+    }
 }

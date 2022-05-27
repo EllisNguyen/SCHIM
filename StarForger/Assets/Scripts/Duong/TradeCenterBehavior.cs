@@ -12,7 +12,8 @@ public class TradeCenterBehavior : MonoBehaviour
     private List<SO_StarPickupType> _starPickupTypeList = new List<SO_StarPickupType>();
     [SerializeField] private SpriteRenderer _inputSpriteRenderer;
     [SerializeField] private SpriteRenderer _outputSpriteRenderer;
-
+    [SerializeField] private Transform _shootPoint;
+    
     private SO_StarPickupType _outputType;
     
     // Start is called before the first frame update
@@ -63,6 +64,8 @@ public class TradeCenterBehavior : MonoBehaviour
 
     private void FinishConversion(StarBehavior starBehavior)
     {
+        starBehavior.ResetPlayerPickUpCoolDown();
+        starBehavior.transform.position = _shootPoint.position;
         starBehavior.SetDrag(2.5f);
         starBehavior.AddForce(transform.forward * 1000);
     }
