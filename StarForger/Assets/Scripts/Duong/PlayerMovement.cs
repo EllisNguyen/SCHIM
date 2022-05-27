@@ -15,17 +15,22 @@ public class PlayerMovement : MonoBehaviour
     // private float RotationSpeed;
     
     private Camera Camera => Camera.main;
+    private Transform _camtTransform;
 
     private void Awake()
     {
         transform.position = new Vector3(transform.position.x, GameManager.Instance.globalYPos, transform.position.z);
         _input = GetComponent<InputHandler>();
+        _camtTransform = Camera.transform;
     }
+    
+    
 
     // Update is called once per frame
     void Update()
     {
-        
+        _camtTransform.position = new Vector3(transform.position.x, _camtTransform.position.y, transform.position.z);
+
         var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
         var movementVector = MoveTowardTarget(targetVector);
         
