@@ -53,6 +53,10 @@ public class MainMenu : MonoBehaviour
         for (int i = 0; i < disableAfterConfig.Count; i++)
         {
             disableAfterConfig[i].SetActive(false);
+        }
+
+        for (int i = 0; i < enableAfterConfig.Count; i++)
+        {
             enableAfterConfig[i].SetActive(true);
         }
     }
@@ -66,6 +70,10 @@ public class MainMenu : MonoBehaviour
         for (int i = 0; i < disableAfterTutorial.Count; i++)
         {
             disableAfterTutorial[i].SetActive(false);
+        }
+
+        for (int i = 0; i < enableAfterTutorial.Count; i++)
+        {
             enableAfterTutorial[i].SetActive(true);
         }
     }
@@ -73,6 +81,11 @@ public class MainMenu : MonoBehaviour
     public void PressBack()
     {
         StartCoroutine(ActivateMenu(mainMenu, transitionDelay));
+
+        for (int i = 0; i < disableAfterStart.Count; i++)
+        {
+            disableAfterStart[i].SetActive(false);
+        }
     }
 
     IEnumerator ActivateMenu(GameObject menu, float delay = 0f)
