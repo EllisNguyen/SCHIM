@@ -33,6 +33,7 @@ public class AnimatedUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerEnter(PointerEventData eventData)
     {
         holder.DOAnchorPos(moveTo, time);
+        AudioManager.instance.PlayThisClip("Button1");
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -44,6 +45,7 @@ public class AnimatedUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (anykeyPressedAnim == null) return;
         holder.DOAnchorPos(origin, time);
+        AudioManager.instance.PlayThisClip("Button2");
         StartCoroutine(TitleTransitionSequence());
     }
 
