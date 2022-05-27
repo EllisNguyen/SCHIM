@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: TradeCenterVariant1
   m_EditorClassIdentifier: 
   inputStar: 0
-  outputStar: 0
-  starPickupTypeList: []
+  outputStar: 2

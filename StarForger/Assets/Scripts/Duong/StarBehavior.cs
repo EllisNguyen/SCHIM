@@ -36,4 +36,9 @@ public class StarBehavior : MonoBehaviour
     {
         _rigidbody.drag = drag;
     }
+
+    public StarType GetStarType()
+    {
+        return starData.starValue;
+    }
 }
