@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public float globalYPos = 1;
     public  List<SO_StarPickupType> starPickupTypeList = new List<SO_StarPickupType>();
+    public GameObject starPrefab;
     
     private void Awake()
     {

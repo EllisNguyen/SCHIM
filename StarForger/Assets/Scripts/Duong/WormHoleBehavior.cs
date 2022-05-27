@@ -10,9 +10,9 @@ public class WormHoleBehavior : MonoBehaviour
     private float _currentSpawnTimer;
     
 
-    private List<SO_StarPickupType> _starPickupTypeList = new List<SO_StarPickupType>();
+    [SerializeField] private SO_StarPickupType _starPickupTypeDefault;
 
-    [SerializeField] private GameObject _starPrefab;
+    private GameObject _starPrefab;
     [SerializeField] private Transform _spawnRoot;
 
     [SerializeField] private float _minDrag;
@@ -27,7 +27,8 @@ public class WormHoleBehavior : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(transform.position.x, GameManager.Instance.globalYPos, transform.position.z);
-        _starPickupTypeList = GameManager.Instance.starPickupTypeList;
+        //_starPickupTypeDefault = GameManager.Instance.starPickupTypeList[0];
+        _starPrefab = GameManager.Instance.starPrefab;
     }
 
     // Update is called once per frame
@@ -37,10 +38,10 @@ public class WormHoleBehavior : MonoBehaviour
 
         if (_currentSpawnTimer <= 0)
         {
-            int randIndex = Random.Range(0, (_starPickupTypeList.Count));
+            //int randIndex = Random.Range(0, (_starPickupTypeList.Count));
             
             //cache scriptable object
-            var starData = _starPickupTypeList[randIndex];
+            //var starData = _starPickupTypeList[randIndex];
             
             //Generate random yaw angle
             _spawnRoot.rotation = Random.rotation;
@@ -56,7 +57,7 @@ public class WormHoleBehavior : MonoBehaviour
             //Add force to said star
             starBehavior.AddForce(forceDir * 1000);
             starBehavior.SetDrag(Random.Range(_minDrag, _maxDrag));
-            starBehavior.starData = starData;
+            starBehavior.starData = _starPickupTypeDefault;
             
             //reset timer
             _currentSpawnTimer = _spawnInterval;
