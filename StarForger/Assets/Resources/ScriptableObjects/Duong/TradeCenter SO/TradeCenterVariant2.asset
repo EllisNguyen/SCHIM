@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b624503a56b7d4aa02a843035886d4, type: 3}
   m_Name: TradeCenterVariant2
   m_EditorClassIdentifier: 
-  inputStar: 0
-  outputStar: 0
+  inputStar: 2
+  outputStar: 1
