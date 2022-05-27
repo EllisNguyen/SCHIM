@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 [RequireComponent(typeof(BoxCollider))]
 
@@ -13,6 +14,7 @@ public class TradeCenterBehavior : MonoBehaviour
     [SerializeField] private SpriteRenderer _inputSpriteRenderer;
     [SerializeField] private SpriteRenderer _outputSpriteRenderer;
     [SerializeField] private Transform _shootPoint;
+    [SerializeField] private float _conversionTimer;
     
     private SO_StarPickupType _outputType;
     
@@ -37,7 +39,7 @@ public class TradeCenterBehavior : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private async void OnTriggerEnter(Collider other)
     {
         var starBehavior = other.GetComponent<StarBehavior>();
         if (!starBehavior) return;
@@ -51,6 +53,9 @@ public class TradeCenterBehavior : MonoBehaviour
         //same input
         if (starBehavior.starData.starValue == _tradeCenterType.inputStar)
         {
+            starBehavior.gameObject.SetActive(false);
+            await (Task.Delay((int)_conversionTimer*1000));
+            starBehavior.gameObject.SetActive(true);
             starBehavior.OnConverterEntered(_outputType);
             FinishConversion(starBehavior);
         }
