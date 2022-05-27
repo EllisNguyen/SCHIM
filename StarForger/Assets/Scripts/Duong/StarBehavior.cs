@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using System.Threading.Tasks;
 
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Rigidbody))]
@@ -13,7 +13,7 @@ public class StarBehavior : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer => GetComponentInChildren<SpriteRenderer>();
     private Rigidbody _rigidbody => GetComponent<Rigidbody>();
-    
+    public bool canPlayerPickUp = true;
 
     private void Start()
     {
@@ -42,5 +42,18 @@ public class StarBehavior : MonoBehaviour
     public void OnCollected()
     {
         Destroy(gameObject);
+    }
+
+    public void OnConverterEntered(SO_StarPickupType outputType)
+    {
+        starData = outputType;
+        _spriteRenderer.sprite = starData.sprite;
+    }
+
+    public async void PlayerPickUpCoolDown()
+    {
+        canPlayerPickUp = false;
+        await Task.Delay(1000);
+        canPlayerPickUp = true;
     }
 }
