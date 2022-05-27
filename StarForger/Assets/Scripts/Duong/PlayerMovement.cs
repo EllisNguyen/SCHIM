@@ -8,11 +8,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private bool RotateTowardMouse = true;
-
     [SerializeField]
     private float MovementSpeed;
-    // [SerializeField]
-    // private float RotationSpeed;
+
     
     private Camera Camera => Camera.main;
     private Transform _camtTransform;
