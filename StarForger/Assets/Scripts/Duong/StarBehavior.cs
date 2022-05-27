@@ -26,6 +26,7 @@ public class StarBehavior : MonoBehaviour
 
     public void AddForce(Vector3 direction)
     {
+        _rigidbody.velocity = Vector3.zero;
         _rigidbody.AddForce(direction);
     }
 

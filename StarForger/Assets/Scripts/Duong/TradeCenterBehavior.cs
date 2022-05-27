@@ -66,4 +66,11 @@ public class TradeCenterBehavior : MonoBehaviour
         starBehavior.SetDrag(2.5f);
         starBehavior.AddForce(transform.forward * 1000);
     }
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Vector3 forward = transform.forward * 8;
+        Gizmos.DrawRay(transform.position, transform.forward * 5);
+    }
 }

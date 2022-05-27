@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,18 +12,24 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float MovementSpeed;
 
+    private Rigidbody _rigidbody => GetComponent<Rigidbody>();
     
     private Camera Camera => Camera.main;
     private Transform _camtTransform;
 
     private void Awake()
     {
-        transform.position = new Vector3(transform.position.x, GameManager.Instance.globalYPos, transform.position.z);
+       
         _input = GetComponent<InputHandler>();
         _camtTransform = Camera.transform;
     }
-    
-    
+
+    private void Start()
+    {
+        
+        transform.position = new Vector3(transform.position.x, GameManager.Instance.globalYPos, transform.position.z);
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -35,6 +42,11 @@ public class PlayerMovement : MonoBehaviour
         if (RotateTowardMouse)
         {
             RotateFromMouseVector();
+        }
+
+        if (_rigidbody.velocity.magnitude > 0)
+        {
+            _rigidbody.velocity = Vector3.zero;
         }
 
     }
