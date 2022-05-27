@@ -4,25 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(MeshFilter))]
-[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Rigidbody))]
 
 public class StarBehavior : MonoBehaviour
 {
     public SO_StarPickupType starData;
 
-    private MeshFilter _meshFilter => GetComponent<MeshFilter>();
-    private MeshRenderer _meshRenderer => GetComponent<MeshRenderer>();
+    private SpriteRenderer _spriteRenderer => GetComponentInChildren<SpriteRenderer>();
     private Rigidbody _rigidbody => GetComponent<Rigidbody>();
     
 
     private void Start()
     {
         transform.position = new Vector3(transform.position.x, GameManager.Instance.globalYPos, transform.position.z);
-        
-        _meshFilter.mesh = starData.mesh;
-        _meshRenderer.material = starData.mainMaterial;
+
+        _spriteRenderer.sprite = starData.sprite;
         _rigidbody.useGravity = false;
         
     }
@@ -40,5 +37,10 @@ public class StarBehavior : MonoBehaviour
     public StarType GetStarType()
     {
         return starData.starValue;
+    }
+
+    public void OnCollected()
+    {
+        Destroy(gameObject);
     }
 }
