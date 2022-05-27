@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: StarSquare
   m_EditorClassIdentifier: 
   starValue: 0
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  mainMaterial: {fileID: 2100000, guid: e8555c0c493b51f42a53ce66225e12a6, type: 2}
+  sprite: {fileID: 21300000, guid: 1822c64bc854ead4cba3e404c4fde303, type: 3}

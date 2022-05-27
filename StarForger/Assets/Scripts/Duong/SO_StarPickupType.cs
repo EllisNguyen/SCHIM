@@ -6,7 +6,6 @@ using UnityEngine;
 public class SO_StarPickupType : ScriptableObject
 {
     public StarType starValue;
-    public Mesh mesh;
-    public Material mainMaterial;
-    public float dragForce;
+    public Sprite sprite;
+    //public float dragForce;
 }

@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct InvenItem
+[Serializable]
+public class InvenItem
 {
     public StarType starType;
     public int starCount;
@@ -12,17 +13,20 @@ public struct InvenItem
 public class PlayerStarInteraction : MonoBehaviour
 {
     //private List<SO_StarPickupType> _starTypeList = new List<SO_StarPickupType>();
-    private List<InvenItem> _inventoryList = new List<InvenItem>();
+    [SerializeField] private List<InvenItem> _inventoryList;
 
     private void Start()
     {
         var starTypeList = GameManager.Instance.starPickupTypeList;
         
         //initialize with size
-        _inventoryList = new List<InvenItem>(starTypeList.Count);
-        foreach (var item in _inventoryList)
+        //print($"{starTypeList.Count}");
+        //_inventoryList = new List<InvenItem>(starTypeList.Count);
+        for (int i = 0; i < starTypeList.Count; i++)
         {
-            
+            _inventoryList.Add(new InvenItem());
+            _inventoryList[i].starType = starTypeList[i].starValue;
+            _inventoryList[i].starCount = 0;
         }
     }
     
@@ -32,7 +36,16 @@ public class PlayerStarInteraction : MonoBehaviour
         
         if (!starBehavior) return;
 
+        //get star type
         var starValue = starBehavior.GetStarType();
+        //add to inventory
+        foreach (var item in _inventoryList)
+        {
+            if (item.starType == starValue)
+                item.starCount++;
+        }
+        //destroy star
+        starBehavior.OnCollected();
         
     }
 }
