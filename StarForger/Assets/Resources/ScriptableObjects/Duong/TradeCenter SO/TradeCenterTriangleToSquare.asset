@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9b624503a56b7d4aa02a843035886d4, type: 3}
-  m_Name: TradeCenterVariant2
+  m_Name: TradeCenterTriangleToSquare
   m_EditorClassIdentifier: 
-  inputStar: 2
-  outputStar: 1
+  inputStar: 1
+  outputStar: 0
