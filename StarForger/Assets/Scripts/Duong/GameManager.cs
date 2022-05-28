@@ -18,7 +18,11 @@ public class GameManager : MonoBehaviour
 
     public float globalYPos = 1;
     public  List<SO_StarPickupType> starPickupTypeList = new List<SO_StarPickupType>();
+    public int maxStarOnScreen = 20;
+    public int spawnIndex = 0;
+    
     public GameObject starPrefab;
+    //public List<GameObject> starPool = new List<GameObject>();
 
     public int currentRecipeCount;
     public int maxRecipeCount;
@@ -44,48 +48,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // public void UpdateRequiredNum(InvenItem recipeElement)
+    // public void RemoveNullFromStarPool()
     // {
-    //     foreach (var tracker in currentRecipeTrackers)
+    //     for(int i = 0; i < starPool.Count; i++)
     //     {
-    //         if (recipeElement.starData == tracker.starData)
+    //         if (starPool[i] == null)
     //         {
-    //             tracker.requiredNum = recipeElement.starCount;
+    //             starPool.RemoveAt(i);
     //         }
     //     }
     // }
     //
-    // public void UpdateCurrentNum(InvenItem recipeElement)
+    // public void AddToPool(GameObject star)
     // {
-    //     foreach (var tracker in currentRecipeTrackers)
-    //     {
-    //         if (recipeElement.starData == tracker.starData)
-    //         {
-    //             tracker.currentNum = recipeElement.starCount;
-    //         }
-    //     }
+    //     if (starPool.Count >= maxStarOnScreen) { return; }
+    //     starPool.Add(star);
     // }
-    //
-    // public void UpdateCurrentRecipeCount(int current, int max)
-    // {
-    //     currentRecipeCount = current;
-    //     maxRecipeCount = max;
-    // }
-    //
-    // private void CheckCompleteRecipe()
-    // {
-    //     bool complete = true;
-    //     foreach (var data in currentRecipeTrackers)
-    //     {
-    //         if (data.currentNum < data.requiredNum)
-    //         {
-    //             complete = false;
-    //         }
-    //     }
-    //
-    //     if (complete)
-    //     {
-    //         RecipeRandomizer.Instance.CycleNextRecipe();
-    //     }
-    // }
+
+    public bool CanSpawn()
+    {
+        return spawnIndex < maxStarOnScreen;
+    }
+    
 }

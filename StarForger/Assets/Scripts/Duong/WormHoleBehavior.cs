@@ -8,8 +8,8 @@ public class WormHoleBehavior : MonoBehaviour
 {
     [SerializeField] private float _spawnInterval;
     private float _currentSpawnTimer;
-    
 
+    
     [SerializeField] private SO_StarPickupType _starPickupTypeDefault;
 
     private GameObject _starPrefab;
@@ -36,13 +36,8 @@ public class WormHoleBehavior : MonoBehaviour
     {
         _currentSpawnTimer -= Time.deltaTime;
 
-        if (_currentSpawnTimer <= 0)
+        if (_currentSpawnTimer <= 0 && GameManager.Instance.CanSpawn())
         {
-            //int randIndex = Random.Range(0, (_starPickupTypeList.Count));
-            
-            //cache scriptable object
-            //var starData = _starPickupTypeList[randIndex];
-            
             //Generate random yaw angle
             _spawnRoot.rotation = Random.rotation;
             float yaw = _spawnRoot.rotation.eulerAngles.y;
@@ -51,7 +46,10 @@ public class WormHoleBehavior : MonoBehaviour
             Debug.DrawRay(transform.position, forceDir*10);
             
             //Creating random star
-            var star = Instantiate(_starPrefab, transform.position, Quaternion.identity);
+            //var star = Instantiate(_starPrefab, transform.position, Quaternion.identity);
+            //add to pool
+            //GameManager.Instance.AddToPool(star);
+            var star = ObjectPool.Instance.GetGameObject(_starPrefab, transform.position, Quaternion.identity);
             var starBehavior = star.GetComponent<StarBehavior>();
             
             //Add force to said star
@@ -61,6 +59,9 @@ public class WormHoleBehavior : MonoBehaviour
             
             //reset timer
             _currentSpawnTimer = _spawnInterval;
+            
+            //increase spawn index
+            GameManager.Instance.spawnIndex++;
         }
         
     }
