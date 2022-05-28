@@ -16,6 +16,8 @@ public class RecipeRandomizer : MonoBehaviour
     [SerializeField] private RecipeElement _recipeElement;
     [SerializeField] private RecipeElement [] _recipeArray;
 
+    private int _currentRecipeIndex = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,9 +55,23 @@ public class RecipeRandomizer : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public RecipeElement GetCurrentRecipe()
+    {
+        return new RecipeElement();
+    }
+    
+    public void CycleNextRecipe()
     {
         
+    }
+
+    public int GetCurrentRecipeCount()
+    {
+        return _currentRecipeIndex;
+    }
+
+    public int GetMaxRecipeCount()
+    {
+        return _recipeAmount;
     }
 }
