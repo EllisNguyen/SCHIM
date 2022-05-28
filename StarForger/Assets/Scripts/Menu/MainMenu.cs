@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class MainMenu : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject creditsMenu;
     [SerializeField] GameObject levelSelectMenu;
 
+    [SerializeField] GameObject camObject;
+    [SerializeField] float normalZ = -10f;
+    [SerializeField] float levelSelectZ = 350f;
+
     GameObject curMenu;
     CanvasGroup curCanv;
 
@@ -38,8 +43,9 @@ public class MainMenu : MonoBehaviour
 
     public void PressStart()
     {
-        curMenu.GetComponent<CanvasGroup>().interactable = false;
+        if(curMenu.GetComponent<CanvasGroup>() != null) curMenu.GetComponent<CanvasGroup>().interactable = false;
         //startOperation?.Invoke();
+        camObject.transform.DOMoveZ(levelSelectZ, 2f);
 
         StartCoroutine(ActivateMenu(levelSelectMenu, transitionDelay));
         for (int i = 0; i < disableAfterStart.Count; i++)
@@ -96,6 +102,8 @@ public class MainMenu : MonoBehaviour
     {
         StartCoroutine(ActivateMenu(mainMenu, transitionDelay));
 
+        if (camObject.transform.position.z != normalZ) camObject.transform.DOMoveZ(normalZ, 1.35f);
+
         for (int i = 0; i < disableAfterStart.Count; i++)
         {
             disableAfterStart[i].SetActive(false);
@@ -119,6 +127,9 @@ public class MainMenu : MonoBehaviour
             }
             curMenu = menu;
             menu.SetActive(true);
+
+            if (curMenu.GetComponent<CanvasGroup>() == null) yield break;
+
             curMenu.GetComponent<CanvasGroup>().interactable = true;
         }
     }

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    [SerializeField] AvailableScene menuScene;
     [SerializeField] List<AvailableScene> scenes;
     public List<AvailableScene> Scenes => scenes;
 
@@ -13,6 +14,11 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+
+    public void LoadMenu(string sceneName = "MainMenu")
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
     public void LoadScene(string sceneName)
@@ -26,11 +32,20 @@ public class LevelManager : MonoBehaviour
                     Debug.LogError($"{scenes[i].SceneName} not yet unlocked.");
                     return;
                 }
-                else
+                else if (scenes[i].LevelState == LevelState.Unlocked)
                 {
-                    SceneManager.LoadScene(scenes[i].SceneName);
+                    SceneManager.LoadScene(sceneName);
                 }
             }
+        }
+    }
+
+    public void ActivateScene(string name)
+    {
+        for (int i = 0; i < scenes.Count; i++)
+        {
+            if (scenes[i].SceneName == name)
+                scenes[i].LevelState = LevelState.Unlocked;
         }
     }
 }
@@ -44,7 +59,16 @@ public class AvailableScene
 
     public string SceneName => sceneName;
     public int SceneIndex => sceneIndex;
-    public LevelState LevelState => levelState;
+    public LevelState LevelState
+    {
+        get { return levelState; }
+        set { levelState = value; }
+    }
+
+    public void ActivateScene()
+    {
+        levelState = LevelState.Unlocked;
+    }
 }
 
 public enum LevelState { Locked, Available, Unlocked }
