@@ -32,13 +32,13 @@ public class AnimatedUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        holder.DOAnchorPos(moveTo, time);
+        holder.DOAnchorPos(moveTo, time).SetUpdate(true);
         AudioManager.instance.PlayThisClip("Button1");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        holder.DOAnchorPos(origin, time);
+        holder.DOAnchorPos(origin, time).SetUpdate(true);
     }
 
     public void Click()
