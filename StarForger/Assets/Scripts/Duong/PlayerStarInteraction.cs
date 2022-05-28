@@ -22,6 +22,10 @@ public class PlayerStarInteraction : MonoBehaviour
     private GameObject _starPrefab;
 
     [SerializeField] private Transform _shootPoint;
+
+    [SerializeField] StarCard starCardPref;
+    [SerializeField] GameObject starCardHolder;
+    [SerializeField] List<StarCard> cardList;
     
     private void Start()
     {
@@ -39,9 +43,11 @@ public class PlayerStarInteraction : MonoBehaviour
             _inventoryList[i].starCount = 0;
             //_inventoryList[i].sprite = starTypeList[i].sprite;
         }
-        
+
         //Update UI on screenSpace
         UpdateScreenSprite();
+        
+        StarCardActivation();
     }
     
     private void OnTriggerEnter(Collider other)
@@ -61,7 +67,7 @@ public class PlayerStarInteraction : MonoBehaviour
         }
         //destroy star
         starBehavior.OnCollected();
-        UpdateScreenSprite();
+        UpdateStarCard();
     }
 
     private void Update()
@@ -86,7 +92,7 @@ public class PlayerStarInteraction : MonoBehaviour
 
             //Update inventory amount
             _inventoryList[currentInventoryIndex].starCount--;
-            UpdateScreenSprite();
+            UpdateStarCard();
         }
     }
     
@@ -98,9 +104,9 @@ public class PlayerStarInteraction : MonoBehaviour
             
             if (currentInventoryIndex > _inventoryList.Count - 1)
                 currentInventoryIndex = 0;
-            
-            UpdateScreenSprite();
-            
+
+            StarCardActivation();
+
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -109,14 +115,47 @@ public class PlayerStarInteraction : MonoBehaviour
             
             if (currentInventoryIndex < 0)
                 currentInventoryIndex = _inventoryList.Count - 1;
-            
-            UpdateScreenSprite();
+
+            StarCardActivation();
         }
     }
     
     private void UpdateScreenSprite()
     {
-        ScreenSpaceUIManager.Instance.UpdateItemSlot(_inventoryList[currentInventoryIndex].starData.sprite,
-                                                    _inventoryList[currentInventoryIndex].starCount.ToString());
+        //ScreenSpaceUIManager.Instance.UpdateItemSlot(_inventoryList[currentInventoryIndex].starData.sprite, _inventoryList[currentInventoryIndex].starCount.ToString());
+
+        foreach (Transform child in starCardHolder.transform)
+        {
+            //Destroy all children.
+            Destroy(child.gameObject);
+        }
+
+        //Then instantiate the card.
+        for (int i = 0; i < GameManager.Instance.starPickupTypeList.Count; i++)
+        {
+            StarCard card = Instantiate(starCardPref, starCardHolder.transform);
+
+            card.UpdateItemSlot(_inventoryList[i].starData.sprite, _inventoryList[i].starCount.ToString());
+            cardList.Add(card);
+        }
+    }
+
+    private void UpdateStarCard()
+    {
+        for (int i = 0; i < cardList.Count; i++)
+        {
+            cardList[i].UpdateItemSlot(_inventoryList[i].starData.sprite, _inventoryList[i].starCount.ToString());
+        }
+    }
+
+    private void StarCardActivation()
+    {
+        for (int i = 0; i < cardList.Count; i++)
+        {
+            if(currentInventoryIndex == i)
+                cardList[currentInventoryIndex].Active(true);
+            else
+                cardList[i].Active(false);
+        }  
     }
 }
