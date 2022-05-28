@@ -12,7 +12,7 @@ public class CurrentRecipeTracker
     public int requiredNum;
 }
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     public static GameManager Instance;
 
@@ -28,6 +28,13 @@ public class GameManager : MonoBehaviour
     public int maxRecipeCount;
 
     public List<CurrentRecipeTracker> currentRecipeTrackers = new List<CurrentRecipeTracker>();
+    
+    
+    //TimerCountDown
+    public float countDown = 120.0f;
+    public string displayTimeValue;
+
+    
     
     private void Awake()
     {
@@ -48,22 +55,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // public void RemoveNullFromStarPool()
-    // {
-    //     for(int i = 0; i < starPool.Count; i++)
-    //     {
-    //         if (starPool[i] == null)
-    //         {
-    //             starPool.RemoveAt(i);
-    //         }
-    //     }
-    // }
-    //
-    // public void AddToPool(GameObject star)
-    // {
-    //     if (starPool.Count >= maxStarOnScreen) { return; }
-    //     starPool.Add(star);
-    // }
+    private void Update() 
+    {     
+        if(countDown>0)     
+        {         
+            countDown -= Time.deltaTime;     
+        }     
+        double b = System.Math.Round (countDown, 0);     
+        displayTimeValue = b.ToString ();     
+        if(countDown < 0)     
+        {         
+            Debug.Log ("You've Lost");     
+        } 
+    }
 
     public bool CanSpawn()
     {
