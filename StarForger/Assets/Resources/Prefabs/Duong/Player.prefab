@@ -1402,7 +1402,7 @@ MonoBehaviour:
   currentInventoryIndex: 0
   _shootPoint: {fileID: 5174133926454476347}
   starCardPref: {fileID: 1264489561848744606, guid: de90ca202d7d4114ca7610db4b712c45, type: 3}
-  starCardHolder: {fileID: 0}
+  starCardHolder: {fileID: 141241709}
   cardList: []
 --- !u!1 &6544589764372399581
 GameObject:
