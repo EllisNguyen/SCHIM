@@ -13,6 +13,7 @@ TagManager:
   - UI
   - StarPrefab
   - ignoreStarPrefab
+  - player
   - 
   - 
   - 
@@ -33,8 +34,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - ignorePlayer
   - Boundary
   - Post-Pro
   m_SortingLayers:
