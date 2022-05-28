@@ -42,7 +42,8 @@ public class StarBehavior : MonoBehaviour
 
     public void OnCollected()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public void OnConverterEntered(SO_StarPickupType outputType)

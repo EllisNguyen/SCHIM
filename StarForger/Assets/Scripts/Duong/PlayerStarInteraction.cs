@@ -59,6 +59,7 @@ public class PlayerStarInteraction : MonoBehaviour
         if (!starBehavior) return;
         if (!starBehavior.canPlayerPickUp) return;
         
+        //GameManager.Instance.maxStarOnScreen--;
         //get star type
         var starValue = starBehavior.GetStarType();
         //add to inventory
@@ -68,7 +69,9 @@ public class PlayerStarInteraction : MonoBehaviour
                 item.starCount++;
         }
         //destroy star
-        starBehavior.OnCollected();
+        //starBehavior.OnCollected();
+        ObjectPool.Instance.ReturnGameObject(starBehavior.gameObject);
+        
         UpdateStarCard();
     }
 
@@ -89,7 +92,10 @@ public class PlayerStarInteraction : MonoBehaviour
             if (_inventoryList[currentInventoryIndex].starCount <= 0) return;
             
             //shoot star and add force
-            var starBehavior = Instantiate(_starPrefab, _shootPoint.position, Quaternion.identity).GetComponent<StarBehavior>();
+            //GameManager.Instance.maxStarOnScreen++;
+            //var starBehavior = Instantiate(_starPrefab, _shootPoint.position, Quaternion.identity).GetComponent<StarBehavior>();
+            var starBehavior = ObjectPool.Instance.GetGameObject(_starPrefab, transform.position, Quaternion.identity).GetComponent<StarBehavior>();
+
             starBehavior.starData = _inventoryList[currentInventoryIndex].starData;
             starBehavior.PlayerPickUpCoolDown();
             starBehavior.SetDrag(0.1f);
@@ -103,7 +109,7 @@ public class PlayerStarInteraction : MonoBehaviour
     
     private void OnInventorySwitch()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             currentInventoryIndex++;
             
@@ -114,7 +120,7 @@ public class PlayerStarInteraction : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             currentInventoryIndex--;
             

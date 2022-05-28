@@ -51,10 +51,11 @@ public class DyingStarBehavior : MonoBehaviour
 
         _randomizerBehavior.CheckCompleteRecipe();
         
-        starBehavior.OnCollected();
-        
-        
-        
+        //starBehavior.OnCollected();
+        // Destroy(starBehavior.gameObject);
+        // GameManager.Instance.RemoveNullFromStarPool();
+        ObjectPool.Instance.ReturnGameObject(starBehavior.gameObject);
+        GameManager.Instance.spawnIndex--;
         // foreach (var data in _currentRecipeDataList.recipeElement)
         // {
         //     if (starBehavior.starData.starValue == data.starData.starValue)
