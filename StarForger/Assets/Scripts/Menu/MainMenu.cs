@@ -25,6 +25,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] List<GameObject> disableAfterTutorial;
     [SerializeField] List<GameObject> enableAfterTutorial;
 
+    [SerializeField] GameObject creditsMenu;
+
     GameObject curMenu;
     CanvasGroup curCanv;
 
@@ -76,6 +78,15 @@ public class MainMenu : MonoBehaviour
         {
             enableAfterTutorial[i].SetActive(true);
         }
+    }
+
+    public void PressCredits()
+    {
+        curMenu.GetComponent<CanvasGroup>().interactable = false;
+
+        //tutorialOperation?.Invoke();
+        StartCoroutine(ActivateMenu(creditsMenu
+            , transitionDelay));
     }
 
     public void PressBack()
