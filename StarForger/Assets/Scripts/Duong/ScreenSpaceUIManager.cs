@@ -28,35 +28,31 @@ public class ScreenSpaceUIManager : MonoBehaviour
         Instance = this;
     }
 
-    public void UpdateHeader(int currentAmount, int maxAmount)
+    private void Update()
     {
-        RecipeHeader.text = "Recipe #" + currentAmount + "/" + maxAmount;
+        //if (!RecipeRandomizer.Instance.isWon)
+        //{
+            UpdateHeader();
+            UpdateRecipeElement();
+        //}
+    }
+    
+    public void UpdateHeader()
+    {
+        var currIndex = RecipeRandomizer.Instance.isWon
+            ? RecipeRandomizer.Instance.GetMaxRecipeCount()
+            : RecipeRandomizer.Instance.currentRecipeIndex;
+        RecipeHeader.text = "Recipe #" + currIndex + "/" + RecipeRandomizer.Instance.GetMaxRecipeCount();
     }
 
-    // public void UpdateCurrentRecipeCount(RecipeElement currentAmount, RecipeElement requiredAmount)
-    // {
-    //     var count = requiredAmount.recipeElement.Count;
-    //     if (currentAmount.recipeElement.Count != requiredAmount.recipeElement.Count)
-    //     {
-    //         Debug.LogError("Unequal amount of elements, please check SS_UI_MANAGER");
-    //     }
-    //
-    //     for (int i = 0; i < RecipeDisplayList.Count; i++)
-    //     {
-    //         for (int j = 0; j < count; j++)
-    //         {
-    //             
-    //         }
-    //     }
-    //     
-    // }
-    
-    
-    // public void UpdateItemSlot(Sprite currentSprite, string amount)
-    // {
-    //     //CurrentOnScreenItem.sour = currentSprite;
-    //     //CurrentOnScreenItem.GetComponent<Image>().sprite
-    //     CurrentOnScreenItem.sprite = currentSprite;
-    //     TMPStarAmount.text = amount;
-    // }
+    public void UpdateRecipeElement()
+    {
+        var trackers = RecipeRandomizer.Instance.recipeArray[RecipeRandomizer.Instance.currentRecipeIndex].recipeElement;
+        for (int i = 0; i < RecipeDisplayList.Count; i++)
+        {
+            RecipeDisplayList[i].StarType = trackers[i].starData.starValue;
+            RecipeDisplayList[i].displaySprite.sprite = trackers[i].starData.sprite;
+            RecipeDisplayList[i].TMPStarAmount.text = trackers[i].starCurrent + "/" + trackers[i].starRequired;
+        }
+    }
 }
