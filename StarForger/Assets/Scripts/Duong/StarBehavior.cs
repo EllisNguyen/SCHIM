@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Body))]
 
 public class StarBehavior : MonoBehaviour
 {
@@ -13,10 +14,13 @@ public class StarBehavior : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer => GetComponentInChildren<SpriteRenderer>();
     private Rigidbody _rigidbody => GetComponent<Rigidbody>();
+    private Body _body => GetComponent<Body>();
     public bool canPlayerPickUp = true;
 
+    
     private void Start()
     {
+        _body.enabled = false;
         transform.position = new Vector3(transform.position.x, GameManager.Instance.globalYPos, transform.position.z);
 
         _spriteRenderer.sprite = starData.sprite;
@@ -48,6 +52,7 @@ public class StarBehavior : MonoBehaviour
 
     public void OnConverterEntered(SO_StarPickupType outputType)
     {
+        RemoveBlackHoleContact();
         starData = outputType;
         _spriteRenderer.sprite = starData.sprite;
     }
@@ -66,7 +71,21 @@ public class StarBehavior : MonoBehaviour
 
     public void UpdateStarData(SO_StarPickupType newData)
     {
+        RemoveBlackHoleContact();
         starData = newData;
         _spriteRenderer.sprite = starData.sprite;
+    }
+
+    public void OnBlackHoleContact(GameObject blackHole)
+    {
+        //_rigidbody.velocity.magni = Vector3.zero;
+        _body.enabled = true;
+        _body.heavyBody = blackHole;
+    }
+
+    public void RemoveBlackHoleContact()
+    {
+        _body.heavyBody = null;
+        _body.enabled = false;
     }
 }

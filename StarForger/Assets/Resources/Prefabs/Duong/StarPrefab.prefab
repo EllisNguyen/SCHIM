@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8363849398888017187}
   - component: {fileID: 6207388225759279206}
   - component: {fileID: 9066122987929833064}
+  - component: {fileID: 6925970045272423121}
   m_Layer: 6
   m_Name: StarPrefab
   m_TagString: Untagged
@@ -77,6 +78,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &6925970045272423121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3343788086782116604}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781bf5c4b9118474ea7d87eb2f9b8665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heavyBody: {fileID: 0}
 --- !u!1 &8220525541020604730
 GameObject:
   m_ObjectHideFlags: 0

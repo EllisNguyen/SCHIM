@@ -22,7 +22,8 @@ public class ScreenSpaceUIManager : MonoBehaviour
     // public Image CurrentOnScreenItem;
     public TextMeshProUGUI RecipeHeader;
     public List<RecipeDataTMP> RecipeDisplayList;
-
+    
+    public TextMeshProUGUI TMPTimeLeft;
     private void Awake()
     {
         Instance = this;
@@ -34,7 +35,9 @@ public class ScreenSpaceUIManager : MonoBehaviour
         //{
             UpdateHeader();
             UpdateRecipeElement();
-        //}
+
+            TMPTimeLeft.text = GameManager.Instance.displayTimeValue;
+            //}
     }
     
     public void UpdateHeader()

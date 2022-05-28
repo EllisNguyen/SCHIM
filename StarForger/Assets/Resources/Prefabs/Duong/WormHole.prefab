@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnInterval: 3
-  _starPickupTypeDefault: {fileID: 11400000, guid: b5e2f0c8a647e4c46bba0a9c0cb245b1, type: 2}
+  _starPickupTypeDefault: {fileID: 11400000, guid: c0df857d5dcbe81439336f9b1a2be4c7, type: 2}
   _spawnRoot: {fileID: 9035929223618632873}
   _minDrag: 0.5
   _maxDrag: 2.5
@@ -93,7 +93,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 4
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 2800000, guid: 22398990a2540b04db109d8fa70ed94b, type: 3}
   Arrow: {fileID: 2800000, guid: ab385d3a1f38684409b20a10ccc0d918, type: 3}
-  Color: {r: 1, g: 1, b: 1, a: 1}
+  Color: {r: 1, g: 0.06132078, b: 0.06132078, a: 1}
 --- !u!1 &8674749504609194766
 GameObject:
   m_ObjectHideFlags: 0
