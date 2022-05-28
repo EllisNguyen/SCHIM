@@ -10,6 +10,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Duong/GlobalDatas.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Duong/InputHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Duong/OffscreenMarker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Duong/SO_StarPickupType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Duong/SO_TradeCenterType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Duong/WormHoleBehavior.cs" root0="FORCE_HIGHLIGHTING" />
@@ -76,7 +77,7 @@
       <workItem from="1653659986050" duration="20772000" />
       <workItem from="1653698592078" duration="1027000" />
       <workItem from="1653699877970" duration="3000" />
-      <workItem from="1653699899296" duration="26256000" />
+      <workItem from="1653699899296" duration="29432000" />
     </task>
     <servers />
   </component>

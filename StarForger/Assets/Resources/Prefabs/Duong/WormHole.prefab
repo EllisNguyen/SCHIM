@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 8674749504269981012}
   - component: {fileID: 8674749504269981015}
   - component: {fileID: 1822793771}
+  - component: {fileID: 6069379947238560895}
   m_Layer: 0
   m_Name: WormHole
   m_TagString: Untagged
@@ -77,7 +78,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnInterval: 3
-  maxStarOnScreen: 10
   _starPickupTypeDefault: {fileID: 11400000, guid: b5e2f0c8a647e4c46bba0a9c0cb245b1, type: 2}
   _spawnRoot: {fileID: 9035929223618632873}
   _minDrag: 0.5
@@ -98,6 +98,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &6069379947238560895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674749504269981013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1426924cc7f52e04d8a46ad9adc28849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 22398990a2540b04db109d8fa70ed94b, type: 3}
+  Arrow: {fileID: 2800000, guid: ab385d3a1f38684409b20a10ccc0d918, type: 3}
+  Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &8674749504609194766
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,7 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _recipeAmount: 5
   _maxStarStack: 3
-  _recipeArray: []
+  recipeArray: []
+  isWon: 0
   currentRecipeIndex: 0
 --- !u!114 &810664422
 MonoBehaviour:
