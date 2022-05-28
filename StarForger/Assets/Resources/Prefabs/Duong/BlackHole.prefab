@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 7313174481149399906}
   - component: {fileID: 7313174481149399910}
   - component: {fileID: 7313174481149399911}
+  - component: {fileID: 4026352311478122593}
   m_Layer: 0
   m_Name: BlackHole
   m_TagString: Untagged
@@ -144,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc23a118adad5747957f353728cc4d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 20
+  rotateSpeed: 40
 --- !u!54 &7313174481149399910
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -174,6 +175,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityFactor: -500
+--- !u!114 &4026352311478122593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7313174481149399907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1426924cc7f52e04d8a46ad9adc28849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 22398990a2540b04db109d8fa70ed94b, type: 3}
+  Arrow: {fileID: 2800000, guid: ab385d3a1f38684409b20a10ccc0d918, type: 3}
+  Color: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &7313174482261336347
 GameObject:
   m_ObjectHideFlags: 0
