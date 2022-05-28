@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 922705063983796478}
   - component: {fileID: 922705063983796475}
   - component: {fileID: 5222332941722797204}
+  - component: {fileID: 9205518482295296986}
   m_Layer: 0
   m_Name: TradeCenter
   m_TagString: Untagged
@@ -64,6 +65,22 @@ MonoBehaviour:
   _inputSpriteRenderer: {fileID: 3510560186531588751}
   _outputSpriteRenderer: {fileID: 2503466290926705149}
   _shootPoint: {fileID: 4599209192845343022}
+  _conversionTimer: 0
+--- !u!114 &9205518482295296986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922705063983796474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1426924cc7f52e04d8a46ad9adc28849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 5818318dff449804d91b45176bac19ba, type: 3}
+  Arrow: {fileID: 2800000, guid: ab385d3a1f38684409b20a10ccc0d918, type: 3}
+  Color: {r: 0.15730685, g: 0.9528302, b: 0.7978443, a: 1}
 --- !u!1 &2134643771071340026
 GameObject:
   m_ObjectHideFlags: 0
