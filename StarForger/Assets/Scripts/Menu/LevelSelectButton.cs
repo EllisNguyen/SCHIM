@@ -38,7 +38,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
             case ButtonState.Locked:
                 break;
             case ButtonState.Available:
-                AvailableBlink();
+                StartCoroutine(AvailableBlink());
                 break;
             case ButtonState.Unlocked:
                 break;
@@ -100,23 +100,22 @@ public class LevelSelectButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
         sequence.Append(unlockImage.DOColor(hitColor, 0.25f));
         sequence.Append(unlockImage.GetComponent<RectTransform>().DOSizeDelta(new Vector2(100, 100), time));
 
-
         flashImage.rectTransform.sizeDelta = flashUiScale;
         flashImage.color = norColor;
-
-
 
         yield return sequence.WaitForCompletion();
     }
 
-    public void AvailableBlink()
+    public IEnumerator AvailableBlink()
     {
         var sequence = DOTween.Sequence();
-        sequence.Append(availableImage.DOColor(noColor, blinkTimer));//.SetLoops(-1, LoopType.Restart));
-        sequence.Join(availableImage.GetComponent<RectTransform>().DOSizeDelta(availableOrigin * 2f, blinkTimer));//.SetLoops(-1));
+        sequence.Append(availableImage.GetComponent<RectTransform>().DOSizeDelta(availableOrigin * 2f, blinkTimer));//.SetLoops(-1));
+        sequence.Join(availableImage.DOColor(noColor, blinkTimer));//.SetLoops(-1, LoopType.Restart));
 
-        sequence.AppendInterval(blinkTimer);
+        //sequence.AppendInterval(blinkTimer);
         sequence.SetLoops(-1, LoopType.Restart);
-        sequence.SetRelative(true);
+        //sequence.SetRelative(true);
+
+        yield return sequence.WaitForCompletion();
     }
 }
