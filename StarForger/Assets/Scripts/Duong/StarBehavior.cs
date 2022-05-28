@@ -63,4 +63,10 @@ public class StarBehavior : MonoBehaviour
     {
         canPlayerPickUp = true;
     }
+
+    public void UpdateStarData(SO_StarPickupType newData)
+    {
+        starData = newData;
+        _spriteRenderer.sprite = starData.sprite;
+    }
 }

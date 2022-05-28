@@ -46,16 +46,13 @@ public class WormHoleBehavior : MonoBehaviour
             Debug.DrawRay(transform.position, forceDir*10);
             
             //Creating random star
-            //var star = Instantiate(_starPrefab, transform.position, Quaternion.identity);
-            //add to pool
-            //GameManager.Instance.AddToPool(star);
             var star = ObjectPool.Instance.GetGameObject(_starPrefab, transform.position, Quaternion.identity);
             var starBehavior = star.GetComponent<StarBehavior>();
             
             //Add force to said star
             starBehavior.AddForce(forceDir * 1000);
             starBehavior.SetDrag(Random.Range(_minDrag, _maxDrag));
-            starBehavior.starData = _starPickupTypeDefault;
+            starBehavior.UpdateStarData(_starPickupTypeDefault);
             
             //reset timer
             _currentSpawnTimer = _spawnInterval;
