@@ -93,7 +93,7 @@ public class PlayerStarInteraction : MonoBehaviour
             starBehavior.starData = _inventoryList[currentInventoryIndex].starData;
             starBehavior.PlayerPickUpCoolDown();
             starBehavior.SetDrag(0.1f);
-            starBehavior.AddForce(_shootPoint.forward * 5000);
+            starBehavior.AddForce(_shootPoint.forward * 3000);
 
             //Update inventory amount
             _inventoryList[currentInventoryIndex].starCount--;
