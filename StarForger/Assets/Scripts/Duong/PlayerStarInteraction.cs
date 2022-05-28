@@ -26,6 +26,8 @@ public class PlayerStarInteraction : MonoBehaviour
     [SerializeField] StarCard starCardPref;
     [SerializeField] GameObject starCardHolder;
     [SerializeField] List<StarCard> cardList;
+
+    private bool _canShoot = true;
     
     private void Start()
     {
@@ -72,6 +74,9 @@ public class PlayerStarInteraction : MonoBehaviour
 
     private void Update()
     {
+        _canShoot = (Time.timeScale == 1);
+
+        if (!_canShoot) return;
         OnInventorySwitch();
         OnFire();
         

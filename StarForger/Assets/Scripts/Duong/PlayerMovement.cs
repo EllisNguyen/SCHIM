@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     
     private Camera Camera => Camera.main;
     private Transform _camtTransform;
-
+    private bool _canMove = true;
     private void Awake()
     {
        
@@ -34,9 +34,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _canMove = (Time.timeScale == 1);
+
+        if (!_canMove) return;
+        
         _camtTransform.position = new Vector3(transform.position.x, _camtTransform.position.y, transform.position.z);
 
-        var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
+        var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y).normalized;
         var movementVector = MoveTowardTarget(targetVector);
         
         if (RotateTowardMouse)
