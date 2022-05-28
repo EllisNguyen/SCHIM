@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using System.Linq;
 
 public enum ButtonState { Locked, Available, Unlocked}
 
@@ -54,7 +55,19 @@ public class LevelSelectButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerClick(PointerEventData eventData)
     {
-
+        switch (buttonState)
+        {
+            case ButtonState.Locked:
+                break;
+            case ButtonState.Available:
+                Unlock();
+                break;
+            case ButtonState.Unlocked:
+                LevelManager.Instance.LoadScene(levelToLoad);
+                break;
+            default:
+                break;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -70,6 +83,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public void Unlock()
     {
         StartCoroutine(UnlockSequence());
+        buttonState = ButtonState.Unlocked;
     }
 
     public IEnumerator UnlockSequence()
@@ -102,6 +116,8 @@ public class LevelSelectButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
         flashImage.rectTransform.sizeDelta = flashUiScale;
         flashImage.color = norColor;
+
+        LevelManager.Instance.ActivateScene(levelToLoad);
 
         yield return sequence.WaitForCompletion();
     }
