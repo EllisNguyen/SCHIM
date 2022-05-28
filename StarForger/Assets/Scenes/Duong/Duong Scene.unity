@@ -1542,13 +1542,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 810664420, guid: d8bd098eba77d1040b4fc298dc4b0dca, type: 3}
+      propertyPath: _maxStarStack
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 810664420, guid: d8bd098eba77d1040b4fc298dc4b0dca, type: 3}
+      propertyPath: _recipeAmount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3215961360608925534, guid: d8bd098eba77d1040b4fc298dc4b0dca, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3215961360608925534, guid: d8bd098eba77d1040b4fc298dc4b0dca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.52
+      value: -27.98
       objectReference: {fileID: 0}
     - target: {fileID: 3215961360608925534, guid: d8bd098eba77d1040b4fc298dc4b0dca, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1556,7 +1564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3215961360608925534, guid: d8bd098eba77d1040b4fc298dc4b0dca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.77
+      value: -11.86
       objectReference: {fileID: 0}
     - target: {fileID: 3215961360608925534, guid: d8bd098eba77d1040b4fc298dc4b0dca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1592,28 +1600,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8bd098eba77d1040b4fc298dc4b0dca, type: 3}
---- !u!1 &810664419 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6113277338312773278, guid: d8bd098eba77d1040b4fc298dc4b0dca, type: 3}
-  m_PrefabInstance: {fileID: 810664418}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &810664420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810664419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace2935cb8868ab4f88c5cf08dc050a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _recipeAmount: 5
-  _maxStarStack: 3
-  _recipeElement:
-    recipeElement: []
-  _recipeArray: []
 --- !u!1 &826235580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,12 +1858,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1586575c962f9498468d377cdcf140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RecipeHeader: {fileID: 580507969}
   RecipeDisplayList:
   - StarType: 0
+    displaySprite: {fileID: 330831012}
     TMPStarAmount: {fileID: 447165615}
   - StarType: 2
+    displaySprite: {fileID: 904822837}
     TMPStarAmount: {fileID: 1880148141}
   - StarType: 1
+    displaySprite: {fileID: 2071358383}
     TMPStarAmount: {fileID: 1366294863}
 --- !u!4 &1187837519
 Transform:
@@ -2507,6 +2497,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c0df857d5dcbe81439336f9b1a2be4c7, type: 2}
   - {fileID: 11400000, guid: 33c4d5713b211c84a89eaeda8feb35a7, type: 2}
   starPrefab: {fileID: 3343788086782116604, guid: 31bff682346d8bc4f84d115b6b9ee9de, type: 3}
+  currentRecipeCount: 0
+  maxRecipeCount: 0
+  currentRecipeTrackers: []
 --- !u!4 &1925023083
 Transform:
   m_ObjectHideFlags: 0

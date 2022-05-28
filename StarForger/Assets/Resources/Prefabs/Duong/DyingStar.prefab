@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3215961360608925534}
+  - component: {fileID: 810664420}
+  - component: {fileID: 810664422}
+  - component: {fileID: 5033069818263107350}
   m_Layer: 0
   m_Name: DyingStar
   m_TagString: Untagged
@@ -24,13 +27,54 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6113277338312773278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.02, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7772128405478313817}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &810664420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6113277338312773278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace2935cb8868ab4f88c5cf08dc050a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recipeAmount: 5
+  _maxStarStack: 3
+  _recipeArray: []
+  currentRecipeIndex: 0
+--- !u!114 &810664422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6113277338312773278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9f968e499fd68438a62ecc0155b71e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &5033069818263107350
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6113277338312773278}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.57
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8000481708795521081
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,7 +86,6 @@ GameObject:
   - component: {fileID: 7772128405478313817}
   - component: {fileID: 7047272409281775947}
   - component: {fileID: 350372546979375868}
-  - component: {fileID: 2813867439624332476}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -58,7 +101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8000481708795521081}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.09, y: 0, z: -13.3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8.5804, y: 8.5804, z: 8.5804}
   m_Children: []
   m_Father: {fileID: 3215961360608925534}
@@ -113,16 +156,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2813867439624332476
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8000481708795521081}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
