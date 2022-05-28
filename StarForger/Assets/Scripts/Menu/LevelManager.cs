@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] List<AvailableScene> scenes;
+    public List<AvailableScene> Scenes => scenes;
 
     public static LevelManager Instance;
 
@@ -43,7 +44,7 @@ public class AvailableScene
 
     public string SceneName => sceneName;
     public int SceneIndex => sceneIndex;
-    public LevelState LevelState => LevelState;
+    public LevelState LevelState => levelState;
 }
 
-public enum LevelState { Locked, Available }
+public enum LevelState { Locked, Available, Unlocked }
