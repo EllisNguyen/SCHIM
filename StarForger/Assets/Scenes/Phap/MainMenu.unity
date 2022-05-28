@@ -5104,6 +5104,7 @@ GameObject:
   - component: {fileID: 1093611617}
   - component: {fileID: 1093611618}
   - component: {fileID: 1093611619}
+  - component: {fileID: 1093611620}
   m_Layer: 0
   m_Name: Menu Manager
   m_TagString: Untagged
@@ -5171,6 +5172,19 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: fdc800f70ced2d84abea34b498f516dd, type: 3}
   - {fileID: 8300000, guid: 884002173991652459e1374785fe20c5, type: 3}
+--- !u!114 &1093611620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093611616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92b81d85f8b8f943b80a40e2f4ba848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: []
 --- !u!1 &1111277171
 GameObject:
   m_ObjectHideFlags: 0
@@ -8464,13 +8478,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AnimatedUI, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1093611620}
+        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
