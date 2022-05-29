@@ -25,4 +25,24 @@ public class PauGemBaby : MonoBehaviour
 
         PauseGame(isPaused);
     }
+
+    public void PressResume()
+    {
+        PauseGame(false);
+    }
+
+    public void PressConfig()
+    {
+
+    }
+
+    public void PressTutorial()
+    {
+
+    }
+
+    public void PressToMenu()
+    {
+        LevelManager.Instance.LoadMenu();
+    }
 }

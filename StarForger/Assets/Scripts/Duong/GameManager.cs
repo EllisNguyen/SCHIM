@@ -36,14 +36,20 @@ public class GameManager : Singleton<GameManager>
     public string displayTimeValue;
     int[] minutes = new int[] { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 };
 
-
     private void Awake()
     {
         Instance = this;
     }
 
+    Fader fader;
+
     private void Start()
     {
+        fader = FindObjectOfType<Fader>();
+
+        if(fader != null)
+            fader.FadeIn();
+
         for (int i = 0; i < minutes.Length; i++)
         {
             if (countDown / minutes[i] > 0)
@@ -53,12 +59,7 @@ public class GameManager : Singleton<GameManager>
                     print("time at i: " + countDown / minutes[i]);
                     countDownByMinute = i + 1;
                 }
-                //else if(countDown / minutes[i] < 60)
-                //{
-                //    countDownByMinute = 0;
-                //}
             }
-            //else countDownByMinute = 0;
         }
 
         foreach (var data in starPickupTypeList)

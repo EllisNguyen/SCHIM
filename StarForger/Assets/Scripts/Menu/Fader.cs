@@ -10,9 +10,20 @@ public class Fader : MonoBehaviour
     public CanvasGroup fadeImg;
     public float fadeTime = 0.65f;
 
+    private void Awake()
+    {
+        FadeOut();
+    }
+
     public void FadeIn()
     {
         fadeImg.DOFade(0, fadeTime);
+    }
+
+    public IEnumerator FadeInAsync()
+    {
+        fadeImg.DOFade(0, fadeTime);
+        yield return new WaitForSeconds(fadeTime);
     }
 
     public void FadeOut()
@@ -20,4 +31,9 @@ public class Fader : MonoBehaviour
         fadeImg.DOFade(1, fadeTime);
     }
 
+    public IEnumerator FadeOutAsync()
+    {
+        fadeImg.DOFade(1, fadeTime);
+        yield return new WaitForSeconds(fadeTime);
+    }
 }
