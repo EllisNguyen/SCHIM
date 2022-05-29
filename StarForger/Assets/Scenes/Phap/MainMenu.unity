@@ -7498,7 +7498,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musiqueSource: {fileID: 606539107}
   sfxSource: {fileID: 2003982751}
-  audioType: []
+  audioType:
+  - audioName: 
+    clip: {fileID: 0}
+  - audioName: 
+    clip: {fileID: 0}
+  - audioName: 
+    clip: {fileID: 0}
+  - audioName: 
+    clip: {fileID: 0}
+  - audioName: 
+    clip: {fileID: 0}
+  - audioName: 
+    clip: {fileID: 0}
+  - audioName: 
+    clip: {fileID: 0}
+  - audioName: 
+    clip: {fileID: 0}
+  - audioName: 
+    clip: {fileID: 0}
+  - audioName: 
+    clip: {fileID: 0}
   audioClips:
   - {fileID: 8300000, guid: fdc800f70ced2d84abea34b498f516dd, type: 3}
   - {fileID: 8300000, guid: 884002173991652459e1374785fe20c5, type: 3}

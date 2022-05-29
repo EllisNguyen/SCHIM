@@ -1175,6 +1175,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 810664420, guid: d8bd098eba77d1040b4fc298dc4b0dca, type: 3}
+      propertyPath: _maxStarStack
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 810664420, guid: d8bd098eba77d1040b4fc298dc4b0dca, type: 3}
+      propertyPath: _minStarStack
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 810664420, guid: d8bd098eba77d1040b4fc298dc4b0dca, type: 3}
+      propertyPath: _recipeAmount
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 23673503800402698, guid: d8bd098eba77d1040b4fc298dc4b0dca, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
