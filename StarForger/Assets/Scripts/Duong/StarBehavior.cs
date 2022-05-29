@@ -17,13 +17,19 @@ public class StarBehavior : MonoBehaviour
     private Body _body => GetComponent<Body>();
     public bool canPlayerPickUp = true;
 
+    public Sprite Circle;
+    public Sprite Triangle;
+    public Sprite Square;
+
+    public Color SquareColor;
     
     private void Start()
     {
         _body.enabled = false;
         transform.position = new Vector3(transform.position.x, GameManager.Instance.globalYPos, transform.position.z);
 
-        _spriteRenderer.sprite = starData.sprite;
+        //_spriteRenderer.sprite = starData.sprite;
+        ChangeAccordingSprite();
         _rigidbody.useGravity = false;
         
     }
@@ -54,7 +60,8 @@ public class StarBehavior : MonoBehaviour
     {
         RemoveBlackHoleContact();
         starData = outputType;
-        _spriteRenderer.sprite = starData.sprite;
+        ChangeAccordingSprite();
+        //_spriteRenderer.sprite = starData.sprite;
     }
 
     public async void PlayerPickUpCoolDown()
@@ -73,7 +80,8 @@ public class StarBehavior : MonoBehaviour
     {
         RemoveBlackHoleContact();
         starData = newData;
-        _spriteRenderer.sprite = starData.sprite;
+        //_spriteRenderer.sprite = starData.sprite;
+        ChangeAccordingSprite();
     }
 
     public void OnBlackHoleContact(GameObject blackHole)
@@ -87,5 +95,26 @@ public class StarBehavior : MonoBehaviour
     {
         _body.heavyBody = null;
         _body.enabled = false;
+    }
+
+    public void ChangeAccordingSprite()
+    {
+        switch (starData.starValue)
+        {
+            case StarType.Square:
+                _spriteRenderer.sprite = Square;
+                _spriteRenderer.color = Color.magenta;
+                break;
+            case StarType.Triangle:
+                _spriteRenderer.sprite = Triangle;
+                _spriteRenderer.color = Color.green;
+                break;
+            case StarType.Circle:
+                _spriteRenderer.sprite = Circle;
+                _spriteRenderer.color = Color.red;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 }
