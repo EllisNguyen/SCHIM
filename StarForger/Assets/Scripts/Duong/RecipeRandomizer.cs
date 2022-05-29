@@ -93,6 +93,7 @@ public class RecipeRandomizer : MonoBehaviour
         if (currentRecipeIndex > _recipeAmount - 1)
         {
             currentRecipeIndex--;
+            ScreenSpaceUIManager.Instance.ActivateWinScreen();
             Debug.Log("WIN");
             AudioManager.instance.PlayThisClipBGM("Win", 0.7f, false);
             isWon = true;

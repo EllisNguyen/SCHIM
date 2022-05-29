@@ -33,12 +33,12 @@ public class PauGemBaby : MonoBehaviour
 
     public void PressConfig()
     {
-
+        print("Chim 1");
     }
 
     public void PressTutorial()
     {
-
+        print("Chim 2");
     }
 
     public void PressToMenu()

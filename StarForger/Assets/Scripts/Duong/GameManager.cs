@@ -45,7 +45,7 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         AudioManager.instance.PlayThisClipBGM("GameplayMusic", 0.5f, true);
-        
+
         for (int i = 0; i < minutes.Length; i++)
         {
             if (countDown / minutes[i] > 0)
@@ -89,7 +89,7 @@ public class GameManager : Singleton<GameManager>
         {
             if (b < 0)
             {
-                countDownByMinute -= 1;
+                countDownByMinute--;
             }
         }
         else if (countDownByMinute == 0)
@@ -97,10 +97,10 @@ public class GameManager : Singleton<GameManager>
             if (countDown < 0)
             {
                 AudioManager.instance.PlayThisClipBGM("Lose", 0.7f, false);
+                ScreenSpaceUIManager.Instance.ActivateLoseScreen();
                 Debug.Log("You've Lost");
             }
         }
-
 
         displayTimeValue = currentTime.ToString();
     }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Image = UnityEngine.UI.Image;
 
 [Serializable]
@@ -15,8 +16,6 @@ public class RecipeDataTMP
 
 public class ScreenSpaceUIManager : MonoBehaviour
 {
-    
-    
     public static ScreenSpaceUIManager Instance;
 
     // public Image CurrentOnScreenItem;
@@ -24,9 +23,33 @@ public class ScreenSpaceUIManager : MonoBehaviour
     public List<RecipeDataTMP> RecipeDisplayList;
     
     public TextMeshProUGUI TMPTimeLeft;
+
+    public GameObject winCanvas;
+    public GameObject loseCanvas;
+    public string levelName;
+
     private void Awake()
     {
         Instance = this;
+        levelName = SceneManager.GetActiveScene().name;
+    }
+
+    public void ToMenu()
+    {
+        LevelManager.Instance.LoadMenu();
+    }
+
+    public void ReloadLevel()
+    {
+        LevelManager.Instance.LoadScene(levelName);
+    }
+
+    public void NextLevel()
+    {
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        LevelManager.Instance.ActivateScene(nextSceneIndex);
+
+        LevelManager.Instance.LoadScene(nextSceneIndex);
     }
 
     private void Update()
@@ -58,5 +81,15 @@ public class ScreenSpaceUIManager : MonoBehaviour
             RecipeDisplayList[i].displaySprite.sprite = trackers[i].starData.sprite;
             RecipeDisplayList[i].TMPStarAmount.text = trackers[i].starCurrent + "/" + trackers[i].starRequired;
         }
+    }
+
+    public void ActivateWinScreen()
+    {
+        winCanvas.SetActive(true);
+    }
+
+    public void ActivateLoseScreen()
+    {
+        loseCanvas.SetActive(false);
     }
 }
