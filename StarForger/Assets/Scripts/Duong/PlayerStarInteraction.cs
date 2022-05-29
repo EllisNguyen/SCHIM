@@ -95,7 +95,8 @@ public class PlayerStarInteraction : MonoBehaviour
             //GameManager.Instance.maxStarOnScreen++;
             //var starBehavior = Instantiate(_starPrefab, _shootPoint.position, Quaternion.identity).GetComponent<StarBehavior>();
             var starBehavior = ObjectPool.Instance.GetGameObject(_starPrefab, transform.position, Quaternion.identity).GetComponent<StarBehavior>();
-
+            
+            AudioManager.instance.PlayThisClipFX("Shoot", 0.2f);
             starBehavior.UpdateStarData(_inventoryList[currentInventoryIndex].starData);
             starBehavior.transform.position = _shootPoint.transform.position;
             starBehavior.PlayerPickUpCoolDown();

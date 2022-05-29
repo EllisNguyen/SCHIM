@@ -17,6 +17,7 @@ public class Boundary : MonoBehaviour
         {
             print("in");
             entity.InBound();
+            AudioManager.instance.PlayThisClipBGM("GameplayMusic", 0.5f, true);
         }
     }
 
@@ -26,6 +27,7 @@ public class Boundary : MonoBehaviour
         {
             print("out");
             entity.OutBound();
+            AudioManager.instance.PlayThisClipBGM("Warning", 0.5f, true);
         }
     }
 

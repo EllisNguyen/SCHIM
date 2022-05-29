@@ -56,6 +56,7 @@ public class AudioManager : MonoBehaviour
         {
             if (audio.AudioName == incomingClip)
             {
+                musiqueSource.Stop();
                 musiqueSource.PlayOneShot(audio.Clip, volume);
                 musiqueSource.loop = isLoop;
             }
@@ -68,6 +69,7 @@ public class AudioManager : MonoBehaviour
         {
             if (audio.AudioName == incomingClip)
             {
+                musiqueSource.Stop();
                 musiqueSource.PlayOneShot(audio.Clip, 1);
                 musiqueSource.loop = isLoop;
             }

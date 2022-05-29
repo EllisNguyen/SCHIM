@@ -87,6 +87,7 @@ public class RecipeRandomizer : MonoBehaviour
     
     public void CycleNextRecipe()
     {
+        AudioManager.instance.PlayThisClipFX("RecipeComplete", 0.8f);
         currentRecipeIndex++;
         
         if (currentRecipeIndex > _recipeAmount - 1)
