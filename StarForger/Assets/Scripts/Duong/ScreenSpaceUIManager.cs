@@ -43,7 +43,7 @@ public class ScreenSpaceUIManager : MonoBehaviour
 
     public void ReloadLevel()
     {
-        LevelManager.Instance.LoadScene(levelName);
+        Application.LoadLevel(levelName);
     }
 
     public void NextLevel()
@@ -91,6 +91,6 @@ public class ScreenSpaceUIManager : MonoBehaviour
 
     public void ActivateLoseScreen()
     {
-        loseCanvas.SetActive(false);
+        loseCanvas.SetActive(true);
     }
 }
