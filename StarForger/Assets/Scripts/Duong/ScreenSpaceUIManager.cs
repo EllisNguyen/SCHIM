@@ -50,7 +50,7 @@ public class ScreenSpaceUIManager : MonoBehaviour
     {
         LevelManager.Instance.ActivateScene(nextLevel);
 
-        LevelManager.Instance.LoadScene(nextLevel);
+        Application.LoadLevel(nextLevel);
     }
 
     private void Update()
