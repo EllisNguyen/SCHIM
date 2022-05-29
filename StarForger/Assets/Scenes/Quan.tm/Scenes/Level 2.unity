@@ -1171,7 +1171,7 @@ MonoBehaviour:
   currentRecipeCount: 0
   maxRecipeCount: 0
   currentRecipeTrackers: []
-  countDown: 120
+  countDown: 300
   countDownByMinute: 0
   displayTimeValue: 
 --- !u!4 &1254985004
