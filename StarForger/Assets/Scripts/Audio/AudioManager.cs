@@ -50,21 +50,27 @@ public class AudioManager : MonoBehaviour
 
     /// FOR BGM MUSIC
 
-    public void PlayThisClipBGM(string incomingClip, float volume)
+    public void PlayThisClipBGM(string incomingClip, float volume, bool isLoop)
     {
         foreach (var audio in audioType)
         {
             if (audio.AudioName == incomingClip)
+            {
                 musiqueSource.PlayOneShot(audio.Clip, volume);
+                musiqueSource.loop = isLoop;
+            }
         }
     }
     
-    public void PlayThisClipBGM(string incomingClip)
+    public void PlayThisClipBGM(string incomingClip, bool isLoop)
     {
         foreach (var audio in audioType)
         {
             if (audio.AudioName == incomingClip)
+            {
                 musiqueSource.PlayOneShot(audio.Clip, 1);
+                musiqueSource.loop = isLoop;
+            }
         }
     }
 

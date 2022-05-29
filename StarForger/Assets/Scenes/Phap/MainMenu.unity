@@ -453,7 +453,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &103802733
 GameObject:
@@ -2001,7 +2001,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1433675368805078208, guid: 206f3f34ceac1084eb47f8e922285106, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1433675368805078208, guid: 206f3f34ceac1084eb47f8e922285106, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2658,8 +2658,10 @@ Transform:
   m_Children:
   - {fileID: 1113908300}
   - {fileID: 1441846309}
+  - {fileID: 2003982752}
+  - {fileID: 606539108}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &460312247
 MonoBehaviour:
@@ -2803,7 +2805,7 @@ Transform:
   m_Children:
   - {fileID: 374264208}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: -147.993, z: 0}
 --- !u!1001 &497385088
 PrefabInstance:
@@ -3453,7 +3455,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8526230684264185940, guid: 8e4b76c906d74c64db0c527b28152606, type: 2}
-  m_audioClip: {fileID: 8300000, guid: e2d547986482988489426bdf9f2afae3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8c0547fcc23461c4fbd66492d0ecd52d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3546,12 +3548,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606539106}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 147.20802, y: 283.76358, z: -1.2919922}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 140.25298, y: 298.0278, z: -66.73324}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 460312246}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &611507911
 GameObject:
@@ -7009,7 +7011,7 @@ Transform:
   - {fileID: 731077037}
   - {fileID: 1851031103}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!225 &1366461200
 CanvasGroup:
@@ -7497,21 +7499,21 @@ MonoBehaviour:
   sfxSource: {fileID: 2003982751}
   audioType:
   - audioName: MainMenu
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: e2d547986482988489426bdf9f2afae3, type: 3}
   - audioName: GameplayBGM
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 4ee5635702dfffd40999a259dc5c8331, type: 3}
   - audioName: Thruster
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: c9763be52cf0e954cb4ba9e976318601, type: 3}
   - audioName: Shoot
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 39aa81bf57c7ace4ea4293950aa6f8f1, type: 3}
   - audioName: GalaxyNoiseBG
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: a91643e48424ad443a7401539556c61d, type: 3}
   - audioName: Button1
     clip: {fileID: 8300000, guid: fdc800f70ced2d84abea34b498f516dd, type: 3}
   - audioName: Button2
     clip: {fileID: 8300000, guid: 884002173991652459e1374785fe20c5, type: 3}
   - audioName: Warning
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: aa178718371725340b1ab5e480355d0c, type: 3}
   - audioName: NoticePanel
     clip: {fileID: 0}
   - audioName: Win
@@ -8446,7 +8448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4998226507325030, guid: 13e60edaee031c249acd2144409ba0b9, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4998226507325030, guid: 13e60edaee031c249acd2144409ba0b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10842,7 +10844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4042629450933142, guid: 2325110187a3df24ab95d62bcbcb723c, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4042629450933142, guid: 2325110187a3df24ab95d62bcbcb723c, type: 3}
       propertyPath: m_LocalScale.x
@@ -11492,12 +11494,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003982750}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 147.20802, y: 283.76358, z: -1.2919922}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 140.25298, y: 298.0278, z: -66.73324}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 460312246}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2010991731
 GameObject:
