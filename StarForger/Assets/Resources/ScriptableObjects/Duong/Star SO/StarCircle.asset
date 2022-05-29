@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: StarCircle
   m_EditorClassIdentifier: 
   starValue: 2
-  sprite: {fileID: 21300000, guid: b11dbd6602c436245934ada994317fae, type: 3}
+  sprite: {fileID: 21300000, guid: 0b23940dd72b5134b8e0c46da085767e, type: 3}

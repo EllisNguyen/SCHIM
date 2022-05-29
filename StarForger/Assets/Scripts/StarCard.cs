@@ -26,6 +26,7 @@ public class StarCard : MonoBehaviour
     public void UpdateItemSlot(Sprite currentSprite, string amount)
     {
         starIcon.sprite = currentSprite;
+
         starCount.text = amount;
     }
 

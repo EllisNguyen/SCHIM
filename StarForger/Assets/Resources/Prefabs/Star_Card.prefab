@@ -99,6 +99,10 @@ MonoBehaviour:
   iconImg: {fileID: 7778223054436326176}
   deselectedFormIcon: {x: 35, y: 35}
   selectedFormIcon: {x: 45, y: 45}
+  _isActive: 0
+  square: {r: 1, g: 0, b: 0.67774296, a: 1}
+  circle: {r: 1, g: 0.0489275, b: 0, a: 1}
+  triangle: {r: 0.111914515, g: 0.8490566, b: 0, a: 1}
 --- !u!1 &7778223053722786197
 GameObject:
   m_ObjectHideFlags: 0

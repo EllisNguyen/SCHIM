@@ -153,6 +153,10 @@ public class PlayerStarInteraction : MonoBehaviour
         }
     }
 
+    public Color square;
+    public Color circle;
+    public Color triangle;
+    
     private void UpdateStarCard()
     {
         for (int i = 0; i < cardList.Count; i++)
