@@ -7516,6 +7516,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: db4a0783c77018840ad54ae6bac1f5b0, type: 3}
   - audioName: Lose
     clip: {fileID: 8300000, guid: 2238d76345873724fa80974596764a97, type: 3}
+  - audioName: RecipeComplete
+    clip: {fileID: 8300000, guid: 763f4489768759040a6da5d6776e6b81, type: 3}
 --- !u!1 &1448782374
 GameObject:
   m_ObjectHideFlags: 0
