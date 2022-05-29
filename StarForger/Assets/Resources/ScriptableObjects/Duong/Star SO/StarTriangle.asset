@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: StarTriangle
   m_EditorClassIdentifier: 
   starValue: 1
-  sprite: {fileID: 21300000, guid: 8a8a0ef53595ea14ea1c23fd130b975d, type: 3}
+  sprite: {fileID: 21300000, guid: 79817414bbdd2c54f80f0ea8a7cce758, type: 3}

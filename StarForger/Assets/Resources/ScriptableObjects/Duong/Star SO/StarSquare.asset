@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: StarSquare
   m_EditorClassIdentifier: 
   starValue: 0
-  sprite: {fileID: 21300000, guid: 1822c64bc854ead4cba3e404c4fde303, type: 3}
+  sprite: {fileID: 21300000, guid: d714ca8cc97416143b5fb9003ffc7606, type: 3}
