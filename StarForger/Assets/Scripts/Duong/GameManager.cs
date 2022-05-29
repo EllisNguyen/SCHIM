@@ -96,6 +96,7 @@ public class GameManager : Singleton<GameManager>
         {
             if (countDown < 0)
             {
+                AudioManager.instance.PlayThisClipBGM("Lose", 0.7f, false);
                 Debug.Log("You've Lost");
             }
         }

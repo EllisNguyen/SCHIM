@@ -94,6 +94,7 @@ public class RecipeRandomizer : MonoBehaviour
         {
             currentRecipeIndex--;
             Debug.Log("WIN");
+            AudioManager.instance.PlayThisClipBGM("Win", 0.7f, false);
             isWon = true;
             return;
         }
