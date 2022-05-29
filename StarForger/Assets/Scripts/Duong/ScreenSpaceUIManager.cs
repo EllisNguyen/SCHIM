@@ -35,8 +35,9 @@ public class ScreenSpaceUIManager : MonoBehaviour
         //{
             UpdateHeader();
             UpdateRecipeElement();
-
+         
             TMPTimeLeft.text = GameManager.Instance.displayTimeValue;
+
             //}
     }
     

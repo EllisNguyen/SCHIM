@@ -32,10 +32,11 @@ public class GameManager : Singleton<GameManager>
     
     //TimerCountDown
     public float countDown = 120.0f;
+    [SerializeField] int countDownByMinute;
     public string displayTimeValue;
+    int[] minutes = new int[] { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 };
 
-    
-    
+
     private void Awake()
     {
         Instance = this;
@@ -43,6 +44,23 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        for (int i = 0; i < minutes.Length; i++)
+        {
+            if (countDown / minutes[i] > 0)
+            {
+                if (countDown / minutes[i] >= 60)
+                {
+                    print("time at i: " + countDown / minutes[i]);
+                    countDownByMinute = i + 1;
+                }
+                //else if(countDown / minutes[i] < 60)
+                //{
+                //    countDownByMinute = 0;
+                //}
+            }
+            //else countDownByMinute = 0;
+        }
+
         foreach (var data in starPickupTypeList)
         {
             CurrentRecipeTracker tracker = new CurrentRecipeTracker()
@@ -57,16 +75,31 @@ public class GameManager : Singleton<GameManager>
 
     private void Update() 
     {     
-        if(countDown>0)     
+        if(countDown > 0)     
         {         
             countDown -= Time.deltaTime;     
-        }     
-        double b = System.Math.Round (countDown, 0);     
-        displayTimeValue = b.ToString ();     
-        if(countDown < 0)     
-        {         
-            Debug.Log ("You've Lost");     
-        } 
+        }
+
+        double b = System.Math.Round(countDown - (60 * (countDownByMinute - 1)), 0);
+        string currentTime = string.Format("{00:00}:{1:00}", countDownByMinute, b);
+
+        if (countDownByMinute > 0)
+        {
+            if (b < 0)
+            {
+                countDownByMinute -= 1;
+            }
+        }
+        else if (countDownByMinute == 0)
+        {
+            if (countDown < 0)
+            {
+                Debug.Log("You've Lost");
+            }
+        }
+
+
+        displayTimeValue = currentTime.ToString();
     }
 
     public bool CanSpawn()
