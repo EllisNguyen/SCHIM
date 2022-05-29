@@ -5982,19 +5982,19 @@ MonoBehaviour:
   scenes:
   - sceneName: Level 1
     sceneIndex: 2
-    levelState: 0
+    levelState: 1
   - sceneName: Level 2
     sceneIndex: 3
-    levelState: 0
+    levelState: 1
   - sceneName: Level 3
     sceneIndex: 4
-    levelState: 0
+    levelState: 1
   - sceneName: Level 4
     sceneIndex: 5
-    levelState: 0
+    levelState: 1
   - sceneName: Level 5
     sceneIndex: 6
-    levelState: 0
+    levelState: 1
 --- !u!4 &1113908300
 Transform:
   m_ObjectHideFlags: 0
