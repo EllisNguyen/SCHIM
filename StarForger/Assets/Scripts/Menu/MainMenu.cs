@@ -44,6 +44,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator Start()
     {
+        Time.timeScale = 1;
         fader = FindObjectOfType<Fader>();
         yield return fader.FadeInAsync();
 

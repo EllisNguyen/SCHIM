@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class AudioManager : MonoBehaviour
 {
@@ -33,7 +34,17 @@ public class AudioManager : MonoBehaviour
         foreach (var audio in audioType)
         {
             if (audio.AudioName == incomingClip)
+            {
+                try
+                {
+
                 sfxSource.PlayOneShot(audio.Clip, volume);
+                }
+                catch (Exception e)
+                {
+                    ;
+                }
+            }
         }
     }
     
@@ -43,7 +54,17 @@ public class AudioManager : MonoBehaviour
         foreach (var audio in audioType)
         {
             if (audio.AudioName == incomingClip)
+            {
+                try
+                {
                 sfxSource.PlayOneShot(audio.Clip, 1);
+
+                }
+                catch (Exception e)
+                {
+                    ;
+                }
+            }
         }
     }
     
@@ -56,9 +77,16 @@ public class AudioManager : MonoBehaviour
         {
             if (audio.AudioName == incomingClip)
             {
-                musiqueSource.Stop();
-                musiqueSource.PlayOneShot(audio.Clip, volume);
-                musiqueSource.loop = isLoop;
+                try
+                {
+                    musiqueSource.Stop();
+                    musiqueSource.PlayOneShot(audio.Clip, volume);
+                    musiqueSource.loop = isLoop;
+                }
+                catch (Exception e)
+                {
+                    ;
+                }
             }
         }
     }
@@ -69,13 +97,23 @@ public class AudioManager : MonoBehaviour
         {
             if (audio.AudioName == incomingClip)
             {
-                musiqueSource.Stop();
-                musiqueSource.PlayOneShot(audio.Clip, 1);
-                musiqueSource.loop = isLoop;
+                try
+                {
+                    musiqueSource.Stop();
+                    musiqueSource.PlayOneShot(audio.Clip, 1);
+                    musiqueSource.loop = isLoop;
+                }catch(Exception e)
+                {
+                    ;
+                }
             }
         }
     }
 
+    private void Exception(object e)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 [System.Serializable]

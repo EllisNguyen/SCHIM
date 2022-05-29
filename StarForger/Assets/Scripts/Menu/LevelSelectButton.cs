@@ -42,6 +42,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
                 StartCoroutine(AvailableBlink());
                 break;
             case ButtonState.Unlocked:
+                unlockImage.gameObject.SetActive(false);
                 break;
             default:
                 break;
@@ -86,6 +87,12 @@ public class LevelSelectButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
         buttonState = ButtonState.Unlocked;
     }
 
+    public void ReadyToPlay()
+    {
+        buttonState = ButtonState.Unlocked;
+        unlockImage.gameObject.SetActive(false);
+    }
+
     public IEnumerator UnlockSequence()
     {
         var sequence = DOTween.Sequence();
@@ -118,6 +125,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
         flashImage.color = norColor;
 
         LevelManager.Instance.ActivateScene(levelToLoad);
+        buttonState = ButtonState.Unlocked;
 
         yield return sequence.WaitForCompletion();
     }

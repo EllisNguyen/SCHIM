@@ -43,6 +43,7 @@ public class PauGemBaby : MonoBehaviour
 
     public void PressToMenu()
     {
+        PauseGame(false);
         LevelManager.Instance.LoadMenu();
     }
 }
