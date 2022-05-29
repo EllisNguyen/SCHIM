@@ -16,6 +16,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Duong/OffscreenMarker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Duong/SO_StarPickupType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Duong/SO_TradeCenterType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Duong/TutorialManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Duong/WayPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Duong/WormHoleBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/LevelSelectButton.cs" root0="FORCE_HIGHLIGHTING" />
@@ -82,7 +83,7 @@
       <workItem from="1653659986050" duration="20772000" />
       <workItem from="1653698592078" duration="1027000" />
       <workItem from="1653699877970" duration="3000" />
-      <workItem from="1653699899296" duration="46421000" />
+      <workItem from="1653699899296" duration="48350000" />
     </task>
     <servers />
   </component>
