@@ -44,6 +44,8 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        AudioManager.instance.PlayThisClipBGM("GameplayMusic", 0.5f, true);
+        
         for (int i = 0; i < minutes.Length; i++)
         {
             if (countDown / minutes[i] > 0)

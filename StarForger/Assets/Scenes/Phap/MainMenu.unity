@@ -5605,8 +5605,7 @@ MonoBehaviour:
   mainMenu: {fileID: 398886232}
   transitionDelay: 0.15
   startOperation: {fileID: 0}
-  disableAfterStart:
-  - {fileID: 0}
+  disableAfterStart: []
   enableAfterStart: []
   configMenu: {fileID: 1711919892}
   configOperation: {fileID: 0}
