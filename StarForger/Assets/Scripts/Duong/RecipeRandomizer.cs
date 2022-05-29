@@ -21,6 +21,7 @@ public class RecipeRandomizer : MonoBehaviour
 {
     public static RecipeRandomizer Instance;
     [SerializeField] private int _recipeAmount = 5;
+    [SerializeField] private int _minStarStack = 0;
     [SerializeField] private int _maxStarStack = 3;//max amount of same type star in a single recipe
     [SerializeField] private RecipeElement _recipeElement = new RecipeElement();
     [SerializeField] public RecipeElement [] recipeArray;
@@ -60,7 +61,7 @@ public class RecipeRandomizer : MonoBehaviour
                 }
                 else
                 {
-                    totalStar = _recipeElement.recipeElement[j].starRequired = (int)Random.Range(0, _maxStarStack+1);
+                    totalStar = _recipeElement.recipeElement[j].starRequired = (int)Random.Range(_minStarStack, _maxStarStack+1);
                 }
             }
             

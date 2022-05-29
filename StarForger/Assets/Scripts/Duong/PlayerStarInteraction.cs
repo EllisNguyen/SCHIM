@@ -97,6 +97,7 @@ public class PlayerStarInteraction : MonoBehaviour
             var starBehavior = ObjectPool.Instance.GetGameObject(_starPrefab, transform.position, Quaternion.identity).GetComponent<StarBehavior>();
 
             starBehavior.UpdateStarData(_inventoryList[currentInventoryIndex].starData);
+            starBehavior.transform.position = _shootPoint.transform.position;
             starBehavior.PlayerPickUpCoolDown();
             starBehavior.SetDrag(0.1f);
             starBehavior.AddForce(_shootPoint.forward * 3000);
