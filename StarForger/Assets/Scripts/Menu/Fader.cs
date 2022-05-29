@@ -10,11 +10,6 @@ public class Fader : MonoBehaviour
     public CanvasGroup fadeImg;
     public float fadeTime = 0.65f;
 
-    private void Awake()
-    {
-        FadeOut();
-    }
-
     public void FadeIn()
     {
         fadeImg.DOFade(0, fadeTime);

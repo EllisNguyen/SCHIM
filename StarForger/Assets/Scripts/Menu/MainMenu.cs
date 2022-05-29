@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
-using UnityEngine.Video;
 
 public enum MenuState { Splash, Menu}
 
@@ -40,28 +39,16 @@ public class MainMenu : MonoBehaviour
     CanvasGroup curCanv;
 
     public Fader fader;
-    public VideoPlayer splashVideo;
 
     MenuState state;
 
     IEnumerator Start()
     {
-        state = MenuState.Splash;
         fader = FindObjectOfType<Fader>();
         yield return fader.FadeInAsync();
-        splashVideo.Play();
-        splashVideo.loopPointReached += OnSpashFinished;
 
-        yield return fader.FadeOutAsync();
-        yield return fader.FadeInAsync();
-
+        state = MenuState.Menu;
         yield return ActivateMenu(mainMenu);
-    }
-
-    void OnSpashFinished(VideoPlayer player)
-    {
-        Debug.Log("Event for movie end called");
-        player.Stop();
     }
 
     public void PressStart()
