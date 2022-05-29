@@ -6,6 +6,7 @@ public class LineControl : MonoBehaviour
 {
     private LineRenderer lr;
     private Transform[] points;
+    public Vector3 offset;
 
     // Start is called before the first frame update
 
@@ -25,7 +26,7 @@ public class LineControl : MonoBehaviour
     {
         for (int i = 0; i < points.Length; i++)
         {
-            lr.SetPosition(i, points[i].position);
+            lr.SetPosition(i, points[i].position - offset);
         }
     }
 }

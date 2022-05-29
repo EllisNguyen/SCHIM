@@ -7,7 +7,7 @@ public class LevelSelection : MonoBehaviour
 
     [SerializeField] List<LevelSelectButton> levelButtons;
 
-    private void Awake()
+    private void Start()
     {
         for (int i = 0; i < LevelManager.Instance.Scenes.Count + 1; i++)
         {

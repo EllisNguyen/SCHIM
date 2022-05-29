@@ -51,7 +51,6 @@ public class MainMenu : MonoBehaviour
         for (int i = 0; i < disableAfterStart.Count; i++)
         {
             disableAfterStart[i].SetActive(false);
-            enableAfterStart[i].SetActive(true);
         }
     }
 
