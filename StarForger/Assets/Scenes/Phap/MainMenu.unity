@@ -5633,9 +5633,6 @@ MonoBehaviour:
   musiqueSource: {fileID: 606539107}
   sfxSource: {fileID: 2003982751}
   audioType: []
-  audioClips:
-  - {fileID: 8300000, guid: fdc800f70ced2d84abea34b498f516dd, type: 3}
-  - {fileID: 8300000, guid: 884002173991652459e1374785fe20c5, type: 3}
 --- !u!1 &1111277171
 GameObject:
   m_ObjectHideFlags: 0
@@ -7499,29 +7496,28 @@ MonoBehaviour:
   musiqueSource: {fileID: 606539107}
   sfxSource: {fileID: 2003982751}
   audioType:
-  - audioName: 
+  - audioName: MainMenu
     clip: {fileID: 0}
-  - audioName: 
+  - audioName: GameplayBGM
     clip: {fileID: 0}
-  - audioName: 
+  - audioName: Thruster
     clip: {fileID: 0}
-  - audioName: 
+  - audioName: Shoot
     clip: {fileID: 0}
-  - audioName: 
+  - audioName: GalaxyNoiseBG
     clip: {fileID: 0}
-  - audioName: 
+  - audioName: Button1
+    clip: {fileID: 8300000, guid: fdc800f70ced2d84abea34b498f516dd, type: 3}
+  - audioName: Button2
+    clip: {fileID: 8300000, guid: 884002173991652459e1374785fe20c5, type: 3}
+  - audioName: Warning
     clip: {fileID: 0}
-  - audioName: 
+  - audioName: NoticePanel
     clip: {fileID: 0}
-  - audioName: 
+  - audioName: Win
     clip: {fileID: 0}
-  - audioName: 
+  - audioName: Lose
     clip: {fileID: 0}
-  - audioName: 
-    clip: {fileID: 0}
-  audioClips:
-  - {fileID: 8300000, guid: fdc800f70ced2d84abea34b498f516dd, type: 3}
-  - {fileID: 8300000, guid: 884002173991652459e1374785fe20c5, type: 3}
 --- !u!1 &1448782374
 GameObject:
   m_ObjectHideFlags: 0

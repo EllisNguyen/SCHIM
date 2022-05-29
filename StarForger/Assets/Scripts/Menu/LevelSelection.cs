@@ -9,7 +9,7 @@ public class LevelSelection : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < LevelManager.Instance.Scenes.Count + 1; i++)
+        for (int i = 0; i < LevelManager.Instance.Scenes.Count; i++)
         {
             levelButtons[i].name = $"Load scene {LevelManager.Instance.Scenes[i].SceneName} - currently {LevelManager.Instance.Scenes[i].LevelState}";
             levelButtons[i].levelToLoad = LevelManager.Instance.Scenes[i].SceneName;

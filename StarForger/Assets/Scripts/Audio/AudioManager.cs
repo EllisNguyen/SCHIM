@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] List<AudioType> audioType;
 
-    public AudioClip[] audioClips;
+    //public AudioClip[] audioClips;
 
     public static AudioManager instance;
 
@@ -28,14 +28,46 @@ public class AudioManager : MonoBehaviour
     //    musiqueSource.Play();
     //}
 
-    public void PlayThisClip(string incomeingClip)
+    public void PlayThisClipFX(string incomingClip, float volume)
     {
-        foreach (AudioClip clip in audioClips)
+        foreach (var audio in audioType)
         {
-            if (clip.name == incomeingClip)
-                sfxSource.PlayOneShot(clip);
+            if (audio.AudioName == incomingClip)
+                sfxSource.PlayOneShot(audio.Clip, volume);
         }
     }
+    
+    //overloaded func
+    public void PlayThisClipFX(string incomingClip)
+    {
+        foreach (var audio in audioType)
+        {
+            if (audio.AudioName == incomingClip)
+                sfxSource.PlayOneShot(audio.Clip, 1);
+        }
+    }
+    
+
+    /// FOR BGM MUSIC
+
+    public void PlayThisClipBGM(string incomingClip, float volume)
+    {
+        foreach (var audio in audioType)
+        {
+            if (audio.AudioName == incomingClip)
+                musiqueSource.PlayOneShot(audio.Clip, volume);
+        }
+    }
+    
+    public void PlayThisClipBGM(string incomingClip)
+    {
+        foreach (var audio in audioType)
+        {
+            if (audio.AudioName == incomingClip)
+                musiqueSource.PlayOneShot(audio.Clip, 1);
+        }
+    }
+
 }
 
 [System.Serializable]
