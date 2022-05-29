@@ -27,11 +27,13 @@ public class ScreenSpaceUIManager : MonoBehaviour
     public GameObject winCanvas;
     public GameObject loseCanvas;
     public string levelName;
+    [SerializeField] int nextLevel;
 
     private void Awake()
     {
         Instance = this;
         levelName = SceneManager.GetActiveScene().name;
+        nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
     public void ToMenu()
@@ -41,15 +43,14 @@ public class ScreenSpaceUIManager : MonoBehaviour
 
     public void ReloadLevel()
     {
-        LevelManager.Instance.LoadScene(levelName);
+        Application.LoadLevel(levelName);
     }
 
     public void NextLevel()
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        LevelManager.Instance.ActivateScene(nextSceneIndex);
+        LevelManager.Instance.ActivateScene(nextLevel);
 
-        LevelManager.Instance.LoadScene(nextSceneIndex);
+        LevelManager.Instance.LoadScene(nextLevel);
     }
 
     private void Update()
@@ -90,6 +91,6 @@ public class ScreenSpaceUIManager : MonoBehaviour
 
     public void ActivateLoseScreen()
     {
-        loseCanvas.SetActive(false);
+        loseCanvas.SetActive(true);
     }
 }

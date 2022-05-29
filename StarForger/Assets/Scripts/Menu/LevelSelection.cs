@@ -15,12 +15,12 @@ public class LevelSelection : MonoBehaviour
             levelButtons[i].levelToLoad = LevelManager.Instance.Scenes[i].SceneName;
 
             if (LevelManager.Instance.Scenes[i].LevelState == LevelState.Unlocked)
-            {
-                levelButtons[i].ReadyToPlay();
-            }
+                levelButtons[i].buttonState = ButtonState.Unlocked;
 
             if (LevelManager.Instance.Scenes[i].LevelState == LevelState.Available)
                 levelButtons[i].buttonState = ButtonState.Available;
+
+            levelButtons[i].Init();
         }
     }
 }

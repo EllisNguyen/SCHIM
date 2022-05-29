@@ -28,7 +28,7 @@ public class PauGemBaby : MonoBehaviour
 
     public void PressResume()
     {
-        PauseGame(false);
+        isPaused = false;
     }
 
     public void PressConfig()
@@ -43,7 +43,7 @@ public class PauGemBaby : MonoBehaviour
 
     public void PressToMenu()
     {
-        PauseGame(false);
+        isPaused = false;
         LevelManager.Instance.LoadMenu();
     }
 }

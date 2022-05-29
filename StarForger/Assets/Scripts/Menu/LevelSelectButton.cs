@@ -34,6 +34,11 @@ public class LevelSelectButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         availableOrigin = availableImage.GetComponent<RectTransform>().sizeDelta;
 
+        Init();
+    }
+
+    public void Init()
+    {
         switch (buttonState)
         {
             case ButtonState.Locked:
@@ -47,11 +52,6 @@ public class LevelSelectButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
             default:
                 break;
         }
-    }
-
-    public void Init()
-    {
-
     }
 
     public void OnPointerClick(PointerEventData eventData)

@@ -50,10 +50,10 @@ public class GameManager : Singleton<GameManager>
         {
             if (countDown / minutes[i] > 0)
             {
-                if (countDown / minutes[i] >= 60)
+                if (countDown / minutes[i] > 60)
                 {
                     print("time at i: " + countDown / minutes[i]);
-                    countDownByMinute = i + 1;
+                    countDownByMinute = i;
                 }
                 //else if(countDown / minutes[i] < 60)
                 //{
@@ -81,8 +81,18 @@ public class GameManager : Singleton<GameManager>
         {         
             countDown -= Time.deltaTime;     
         }
+        double b;
 
-        double b = System.Math.Round(countDown - (60 * (countDownByMinute - 1)), 0);
+        if (countDown > 60)
+        {
+            if(countDown - 60 > 1)
+                b = System.Math.Round(countDown + (-60 * 1), 0);
+            else
+                b = System.Math.Round(countDown + (-60 * (countDownByMinute - 1)), 0);
+        }
+        else
+            b = countDown;
+
         string currentTime = string.Format("{00:00}:{1:00}", countDownByMinute, b);
 
         if (countDownByMinute > 0)
