@@ -46,8 +46,6 @@ public class ScreenSpaceUIManager : MonoBehaviour
         LevelManager.Instance.LoadScene(levelName);
     }
 
-    
-
     public void NextLevel()
     {
         LevelManager.Instance.ActivateScene(nextLevel);
