@@ -40,12 +40,40 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void LoadScene(int sceneIndex)
+    {
+        for (int i = 0; i < scenes.Count; i++)
+        {
+            if (sceneIndex == scenes[i].SceneIndex)
+            {
+                if (scenes[i].LevelState == LevelState.Locked)
+                {
+                    Debug.LogError($"{scenes[i].SceneName} not yet unlocked.");
+                    return;
+                }
+                else if (scenes[i].LevelState == LevelState.Unlocked)
+                {
+                    SceneManager.LoadScene(sceneIndex);
+                }
+            }
+        }
+    }
+
     public void ActivateScene(string name)
     {
         for (int i = 0; i < scenes.Count; i++)
         {
             if (scenes[i].SceneName == name)
                 scenes[i].LevelState = LevelState.Unlocked;
+        }
+    }
+
+    public void ActivateScene(int index)
+    {
+        for (int i = 0; i < scenes.Count; i++)
+        {
+            if (scenes[i].SceneIndex == index)
+                scenes[i].LevelState = LevelState.Available;
         }
     }
 }
